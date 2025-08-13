@@ -1,43 +1,59 @@
 <?php
 require_once 'db_connection.php';
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Sanitize and validate input
-    $student_reg_num = sanitizeInput($_POST['student_reg_num']);
-    $student_index_num = sanitizeInput($_POST['student_index_num']);
-    $student_name = sanitizeInput($_POST['student_name']);
-    $student_password = sanitizeInput($_POST['password']);
-    
-    // Basic validation
-    if (empty($reg_num) || empty($index_num) || empty($name) || empty($password)) {
+    $reg_number = isset($_POST['reg_number']) ? $_POST['reg_number'] : '';
+    $index_number = isset($_POST['index_number']) ? $_POST['index_number'] : '';
+    $name_with_initials = isset($_POST['name_with_initials']) ? $_POST['name_with_initials'] : '';
+    $town = isset($_POST['town']) ? $_POST['town'] : '';
+    $contact_number = isset($_POST['contact_number']) ? $_POST['contact_number'] : '';
+    $password = isset($_POST['password']) ? $_POST['password'] : '';
+
+    if (empty($reg_number) || empty($index_number) || empty($name_with_initials) || 
+        empty($town) || empty($contact_number) || empty($password)) {
         die("All fields are required.");
     }
-    
-    // Hash the password
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    
-    // Prepare SQL statement to prevent SQL injection
-    $sql = "INSERT INTO users (student_reg_num, student_index_num, student_name, student_password) 
-            VALUES (?, ?, ?, ?)";
-    
-    $params = array($student_reg_nu, $student_index_num, $student_name, $hashed_password);
-    $stmt = sqlsrv_prepare($conn, $sql, $params);
-    
-    if (sqlsrv_execute($stmt)) {
-        // Registration successful
-        header("Location: login.html?registration=success");
-        exit();
-    } else {
-        // Registration failed
-        echo "Error: " . print_r(sqlsrv_errors(), true);
+
+    try {
+        $sql = "INSERT INTO student 
+                (reg_number, index_number, name_with_initials, password, contact_number, town, created_date) 
+                VALUES (?, ?, ?, ?, ?, ?, NOW())";
+
+        $stmt = $conn->prepare($sql);
+
+        if (!$stmt) {
+            die("Error in preparing statement: " . $conn->error);
+        }
+
+        $stmt->bind_param("ssssss", 
+            $reg_number, 
+            $index_number, 
+            $name_with_initials, 
+            $password,
+            $contact_number,
+            $town
+        );
+
+        if ($stmt->execute()) {
+            header("Location: ../register.html?registration=success");
+            exit();
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+        $stmt->close();
+
+    } catch (Exception $e) {
+        die("Error: " . $e->getMessage());
     }
-    
-    // Close the statement and connection
-    sqlsrv_free_stmt($stmt);
-    sqlsrv_close($conn);
+
+    $conn->close();
+
 } else {
-    // Not a POST request
     header("Location: register.html");
     exit();
 }
+
 ?>
