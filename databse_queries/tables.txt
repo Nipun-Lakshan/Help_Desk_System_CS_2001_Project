@@ -40,3 +40,6 @@ ADD COLUMN `password` VARCHAR(255) NOT NULL AFTER `contact_number`;
 
 ALTER TABLE student 
 CHANGE COLUMN address town TEXT NOT NULL;
+
+ALTER TABLE users
+MODIFY COLUMN user_type VARCHAR(100) NOT NULL DEFAULT 'staff';
