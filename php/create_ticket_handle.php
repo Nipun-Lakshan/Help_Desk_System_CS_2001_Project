@@ -5,17 +5,17 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
-    $user_type = isset($_POST['user_type']) ? $_POST['user_type'] : '';
-    $password = isset($_POST['password']) ? $_POST['password'] : '';
+    $student_reg_number = isset($_POST['student_reg_number']) ? $_POST['student_reg_number'] : '';
+    $description = isset($_POST['description']) ? $_POST['description'] : '';
+    $department = isset($_POST['department']) ? $_POST['department'] : '';
 
-    if (empty($username) || empty($user_type) || empty($password)) {
+    if (empty($student_reg_number) || empty($description) || empty($department)) {
         die("All fields are required.");
     }
 
     try {
-        $sql = "INSERT INTO users 
-                (username, user_type, password, created_at) 
+        $sql = "INSERT INTO tickets 
+                (student_reg_number, description, department, date) 
                 VALUES (?, ?, ?, NOW())";
 
         $stmt = $conn->prepare($sql);
@@ -25,13 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $stmt->bind_param("sss", 
-            $username, 
-            $user_type,
-            $password
+            $student_reg_number, 
+            $description,
+            $department
         );
 
         if ($stmt->execute()) {
-            header("Location: ../add_user.html?registration=success");
+            header("Location: ../create_ticket.html?registration=success");
             exit();
         } else {
             echo "Error: " . $stmt->error;
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 
 } else {
-    header("Location: add_user.html");
+    header("Location: create_ticket.html");
     exit();
 }
 ?>
