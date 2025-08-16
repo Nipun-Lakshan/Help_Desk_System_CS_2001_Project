@@ -14,6 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     try {
+        // Start transaction
+        $conn->begin_transaction();
+        
+        // 1. Insert the reply
         $sql = "INSERT INTO reply 
                 (ticket_id, description, replied_by, date) 
                 VALUES (?, ?, ?, NOW())";
@@ -30,15 +34,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $replied_by
         );
 
-        if ($stmt->execute()) {
-            header("Location: ../reply.html?registration=success");
-            exit();
-        } else {
-            echo "Error: " . $stmt->error;
+        if (!$stmt->execute()) {
+            throw new Exception("Error inserting reply: " . $stmt->error);
         }
         $stmt->close();
+        
+        // 2. Update the ticket status to 'completed'
+        $update_sql = "UPDATE tickets SET status = 'completed' WHERE ticket_id = ?";
+        $update_stmt = $conn->prepare($update_sql);
+        
+        if (!$update_stmt) {
+            throw new Exception("Error in preparing update statement: " . $conn->error);
+        }
+        
+        $update_stmt->bind_param("s", $ticket_id);
+        
+        if (!$update_stmt->execute()) {
+            throw new Exception("Error updating ticket status: " . $update_stmt->error);
+        }
+        $update_stmt->close();
+        
+        // Commit transaction if both queries succeeded
+        $conn->commit();
+        
+        header("Location: ../reply.html?registration=success");
+        exit();
 
     } catch (Exception $e) {
+        // Roll back transaction if any error occurs
+        $conn->rollback();
         die("Error: " . $e->getMessage());
     }
 
