@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         );
 
         if ($stmt->execute()) {
-            header("Location: ../create_ticket.html?registration=success");
+            header("Location: ../create_ticket.php?registration=success");
             exit();
         } else {
             echo "Error: " . $stmt->error;
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 
 } else {
-    header("Location: create_ticket.html");
+    header("Location: create_ticket.php");
     exit();
 }
 ?>

@@ -1,3 +1,9 @@
+<?php 
+
+include __DIR__ . "/php/auth_check_users.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,12 +29,12 @@
             <div class="form-group">
               <a href="/helpdesksystem/reply.html" class="login-submit-btn">Reply a Ticket</a>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
              <a href="/helpdesksystem/view_tickets.php" class="login-submit-btn">Tickets View</a>
             </div>
             <div class="form-group">
              <a href="/helpdesksystem/view_replies.php" class="login-submit-btn">Tickets Reply</a>
-            </div>
+            </div> -->
           </form>
         </div>
       </div>

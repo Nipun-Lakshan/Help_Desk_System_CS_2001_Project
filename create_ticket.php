@@ -1,3 +1,7 @@
+<?php 
+include __DIR__ . "/php/auth_check_students.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,7 +37,8 @@
                 id="student_reg_number"
                 name="student_reg_number"
                 placeholder="Enter the student registration number"
-                required
+                value="<?php echo $_SESSION['reg_number']?>"
+                readonly
               />
             </div>
             <div class="form-group textarea">
