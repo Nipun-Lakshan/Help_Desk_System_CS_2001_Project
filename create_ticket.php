@@ -16,6 +16,7 @@ include __DIR__ . "/php/auth_check_students.php";
         <div class="logo">Help Desk</div>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><button class="btn-login" onclick="window.location.href='php/logout.php'">Logout</button></li>
         </ul>
       </div>
     </nav>
@@ -36,7 +37,6 @@ include __DIR__ . "/php/auth_check_students.php";
                 type="text"
                 id="student_reg_number"
                 name="student_reg_number"
-                placeholder="Enter the student registration number"
                 value="<?php echo $_SESSION['reg_number']?>"
                 readonly
               />

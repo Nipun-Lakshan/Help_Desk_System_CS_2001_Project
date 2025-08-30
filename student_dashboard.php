@@ -18,6 +18,7 @@ include __DIR__ . "/php/auth_check_students.php";
         <div class="logo">Help Desk - Student</div>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><button class="btn-login" onclick="window.location.href='php/logout.php'">Logout</button></li>
         </ul>
       </div>
     </nav>

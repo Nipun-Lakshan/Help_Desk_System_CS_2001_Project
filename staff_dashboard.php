@@ -27,7 +27,7 @@ include __DIR__ . "/php/auth_check_users.php";
           <h2 class="login-title">Staff Dashboard</h2>
           <form class="login-form">
             <div class="form-group">
-              <a href="/helpdesksystem/reply.html" class="login-submit-btn">Reply a Ticket</a>
+              <a href="/helpdesksystem/reply.php" class="login-submit-btn">Reply a Ticket</a>
             </div>
             <!-- <div class="form-group">
              <a href="/helpdesksystem/view_tickets.php" class="login-submit-btn">Tickets View</a>

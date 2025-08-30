@@ -13,10 +13,10 @@
 session_start();
 
 // Define session timeout period.
-$session_expire_time = 10; // Session will expire within 10 seconds.
+$session_expire_time = 1800; // Session will expire within 30 minutes.
 
 // Define the session id regeneration time.
-$session_regenerate_time = 5; // Session ID will regenerate after every 05 seconds. (Should be less than the session timeout period)
+$session_regenerate_time = 900; // Session ID will regenerate after every 15 minutes.
 
 // Check if session has expired due to inactivity.
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $session_expire_time)) {

@@ -9,7 +9,7 @@ include __DIR__ . "/php/auth_check_admin.php";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Help Desk - Login</title>
+    <title>Help Desk - Admin Dashboard</title>
     <link href="css/admin_dashboard_style.css" rel="stylesheet" />
   </head>
   <body>
@@ -18,6 +18,7 @@ include __DIR__ . "/php/auth_check_admin.php";
         <div class="logo">Help Desk - Admin</div>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><button class="btn-login" onclick="window.location.href='php/logout.php'">Logout</button></li>
         </ul>
       </div>
     </nav>
@@ -27,10 +28,10 @@ include __DIR__ . "/php/auth_check_admin.php";
           <h2 class="login-title">Admin Dashboard</h2>
           <form class="login-form">
             <div class="form-group">
-             <a href="/helpdesksystem/register.html" class="login-submit-btn">Student Registration</a>
+             <a href="/helpdesksystem/register.php" class="login-submit-btn">Student Registration</a>
             </div>
              <div class="form-group">
-             <a href="/helpdesksystem/add_user.html" class="login-submit-btn">User Registration</a>
+             <a href="/helpdesksystem/add_user.php" class="login-submit-btn">User Registration</a>
             </div>
              <div class="form-group">
              <a href="/helpdesksystem/view_tickets.php" class="login-submit-btn">Tickets View</a>

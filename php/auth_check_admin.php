@@ -13,10 +13,10 @@
 session_start();
 
 // Define session timeout period.
-$session_expire_time = 10; // Session will expire within 10 seconds.
+$session_expire_time = 1800; // Session will expire within 30 minutes.
 
 // Define the session id regeneration time.
-$session_regenerate_time = 5; // Session ID will regenerate after every 05 seconds.
+$session_regenerate_time = 900; // Session ID will regenerate after every 15 minutes.
 
 // Check if session has expired due to inactivity.
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $session_expire_time)) {
@@ -66,24 +66,8 @@ error_reporting(E_ALL);
 // Configure PHP to display errors on screen.
 ini_set('display_errors', 1);
 
-// Check if admin_id is set in the session. (User is logged in as admin)
-// 1. FIRST, check if the user is even logged in by checking for a critical session variable.
-if (!isset($_SESSION['user_id'])) {
-    // User is not logged in at all. Show 401.
-    include __DIR__ . "/../401.html";
-    exit();
-}
-
-// 2. NOW, check if the logged-in user is the admin (user_id must be 0).
-if ($_SESSION['user_id'] != 0) {
-    // User is logged in but is NOT the admin. Show 401.
-    include __DIR__ . "/../401.html";
-    exit();
-}
-
-// 3. (Optional but recommended) Add an extra check for the user_type to be 'admin'
-if ($_SESSION['user_type'] != 'admin') {
-    // Session is corrupted or user is not an admin. Show 401.
+// Replace the entire admin validation section with:
+if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != 0 || $_SESSION['user_type'] != 'admin') {
     include __DIR__ . "/../401.html";
     exit();
 }

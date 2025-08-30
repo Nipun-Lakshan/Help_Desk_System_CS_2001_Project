@@ -1,3 +1,7 @@
+<?php 
+include __DIR__ . "/php/auth_check_users.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,8 +57,8 @@
                 type="text"
                 id="replied_by"
                 name="replied_by"
-                placeholder="Enter your username"
-                required
+                value="<?php echo $_SESSION['username']?>"
+                readonly
               />
             </div>
             <button type="submit" class="login-submit-btn">Submit</button>

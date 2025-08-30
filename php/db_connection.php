@@ -29,6 +29,8 @@ if ($conn->connect_error) {
     // The "connect_error" property provides details about what went wrong.
     // "die" uses as exit(). "." is used as a string concatenation.
     die("Connection failed: " . $conn->connect_error);
+    header("Location: ../500.html");
+    exit();
 
 }
 

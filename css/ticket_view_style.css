@@ -1,3 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.btn-login {
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-login:hover {
+  background-color: #3367d6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-login:active {
+  background-color: #2a56c6;
+  transform: translateY(0);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-login:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.3);
+}
+
+.btn-login:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 /* Modern Theme Matching add_user_style.css */
 :root {
   --primary-color: #6366f1;
@@ -15,19 +61,11 @@
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   --gradient-tertiary: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  --gradient-elegant: linear-gradient(
-    135deg,
-    #667eea 0%,
-    #764ba2 50%,
-    #f093fb 100%
-  );
+  --gradient-elegant: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   --glass: rgba(255, 255, 255, 0.15);
   --glass-border: rgba(255, 255, 255, 0.2);
@@ -183,20 +221,26 @@ body {
 
 .tickets-table {
   width: 100%;
-  border-collapse: separate; /* Changed from 'collapse' to 'separate' to allow border-spacing and individual cell borders */
-  border-spacing: 0; /* Ensures no space between cells */
+  border-collapse: separate;
+  /* Changed from 'collapse' to 'separate' to allow border-spacing and individual cell borders */
+  border-spacing: 0;
+  /* Ensures no space between cells */
   margin-top: 1rem;
   background: var(--bg-card);
   border-radius: 8px;
-  overflow: hidden; /* Keeps the border-radius visible */
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Main table border */
+  overflow: hidden;
+  /* Keeps the border-radius visible */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* Main table border */
 }
 
 .tickets-table th,
 .tickets-table td {
-  padding: 16px 2.5rem; /* Adjusted padding to match .tickets-container's 2.5rem padding */
+  padding: 16px 2.5rem;
+  /* Adjusted padding to match .tickets-container's 2.5rem padding */
   text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.1); /* All borders for cells */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* All borders for cells */
 }
 
 .tickets-table th {
@@ -240,75 +284,6 @@ body {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
   margin: 0;
-  padding-left: 2rem; /* Added padding to create the gap */
-}
-
-/* Animations */
-@keyframes float {
-  0%,
-  100% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .tickets-table {
-    font-size: 0.9rem;
-  }
-
-  .tickets-table th,
-  .tickets-table td {
-    padding: 12px 15px;
-  }
-
-  .nav-container {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-
-  .nav-links {
-    gap: 1.5rem;
-    margin-top: 1rem;
-  }
-
-  .tickets-container {
-    padding: 1.5rem;
-    width: 95%;
-  }
-
-  .login-title {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .tickets-table th,
-  .tickets-table td {
-    padding: 10px 12px;
-  }
-
-  .status-pending,
-  .status-completed,
-  .status-in-progress {
-    padding: 4px 8px;
-    font-size: 0.75rem;
-  }
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  padding-left: 2rem;
+  /* Added padding to create the gap */
 }
