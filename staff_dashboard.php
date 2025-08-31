@@ -18,6 +18,7 @@ include __DIR__ . "/php/auth_check_users.php";
         <div class="logo">Help Desk - Staff</div>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><button class="btn-login" onclick="window.location.href='php/logout.php'">Logout</button></li>
         </ul>
       </div>
     </nav>

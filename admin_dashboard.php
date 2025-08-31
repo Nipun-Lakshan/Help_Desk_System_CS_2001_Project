@@ -31,7 +31,13 @@ include __DIR__ . "/php/auth_check_admin.php";
              <a href="/helpdesksystem/register.php" class="login-submit-btn">Student Registration</a>
             </div>
              <div class="form-group">
+             <a href="/helpdesksystem/check_update_student.php" class="login-submit-btn">Update Student Details</a>
+            </div>
+             <div class="form-group">
              <a href="/helpdesksystem/add_user.php" class="login-submit-btn">User Registration</a>
+            </div>
+            <div class="form-group">
+             <a href="/helpdesksystem/check_update_user.php" class="login-submit-btn">Update User Details</a>
             </div>
              <div class="form-group">
              <a href="/helpdesksystem/view_tickets.php" class="login-submit-btn">Tickets View</a>
