@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         );
 
         if ($stmt->execute()) {
-            header("Location: ../add_user.html?registration=success");
+            header("Location: ../add_user.php?registration=success");
             exit();
         } else {
             echo "Error: " . $stmt->error;
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 
 } else {
-    header("Location: add_user.html");
+    header("Location: add_user.php");
     exit();
 }
 ?>

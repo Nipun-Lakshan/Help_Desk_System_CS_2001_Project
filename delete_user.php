@@ -4,7 +4,7 @@ include __DIR__ . "/php/auth_check_admin.php";
 // Check if user data is available in session
 if (!isset($_SESSION['user_data']) || empty($_SESSION['user_data'])) {
     // Redirect back to search page if no user data
-    header("Location: check_update_user.php");
+    header("Location: check_delete_user.php");
     exit();
 }
 
@@ -20,7 +20,7 @@ unset($_SESSION['user_data']);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Help Desk - Update User</title>
+    <title>Help Desk - Delete User</title>
     <link href="css/register_style.css" rel="stylesheet" />
   </head>
   <body>
@@ -37,7 +37,7 @@ unset($_SESSION['user_data']);
       <div class="login-form-container">
         <div class="login-card">
           <h2 class="login-title">User Details</h2>
-            <form class="login-form" action="php/update_user_handle.php" method="POST">
+            <form class="login-form" action="php/delete_user_handle.php" method="POST">
             <div class="form-group">
               <label for="username">Username</label>
               <input
@@ -60,9 +60,10 @@ unset($_SESSION['user_data']);
                 id="password"
                 name="password"
                 value="<?php echo htmlspecialchars($user_data['password']); ?>"
+                readonly
               />
             </div>
-            <button type="submit" class="login-submit-btn">Update</button>
+            <button type="submit" class="login-submit-btn">Delete</button>
           </form>
         </div>
       </div>

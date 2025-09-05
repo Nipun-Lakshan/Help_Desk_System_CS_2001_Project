@@ -1,14 +1,11 @@
 <?php
-// update_user_handle.php
 include __DIR__ . "/auth_check_admin.php";
 include __DIR__ . "/db_connection.php";
 
-// Initialize variables
 $search_result = "";
 $user = null;
 $message = "";
 
-// Handle search request
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username'])) {
     $username = trim($_POST['username']);
     
@@ -35,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username'])) {
         $_SESSION['submitted_username'] = $username;
         
         // Redirect back to update form
-        header("Location: ../update_user.php");
+        header("Location: ../delete_user.php");
         exit();
     } 
     // Handle update request
@@ -55,17 +52,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username'])) {
             $check_result = $check_stmt->get_result();
             
             if ($check_result->num_rows > 0) {
-                // Update user record
-                    $update_stmt = $conn->prepare("UPDATE users SET password = ?, user_type = ? WHERE username = ?");
-                    $update_stmt->bind_param("sss", $password, $user_type, $username);
+                    $delete_stmt = $conn->prepare("DELETE FROM users WHERE username = ?");
+                    $delete_stmt->bind_param("s", $username);
 
-                if ($update_stmt->execute()) {
-                    $message = "User record updated successfully!";
+                if ($delete_stmt->execute()) {
+                    $message = "User record deleted successfully!";
+                    $_SESSION['submitted_username'] ="";
+                    $_SESSION['search_result'] = "";
                 } else {
-                    $message = "Error updating record: " . $conn->error;
+                    $message = "Error deleting record: " . $conn->error;
                 }
                 
-                $update_stmt->close();
+                $delete_stmt->close();
             } else {
                 $message = "User not found with username: " . $username;
             }
@@ -74,8 +72,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['username'])) {
         }
         
         // Store message in session to display on the form
-        $_SESSION['update_message'] = $message;
-        header("Location: ../check_update_user.php");
+        $_SESSION['delete_message'] = $message;
+        header("Location: ../check_delete_user.php");
         exit();
     }
 }

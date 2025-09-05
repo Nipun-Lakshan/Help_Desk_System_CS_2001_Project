@@ -28,22 +28,40 @@ include __DIR__ . "/php/auth_check_admin.php";
           <h2 class="login-title">Admin Dashboard</h2>
           <form class="login-form">
             <div class="form-group">
-             <a href="/helpdesksystem/register.php" class="login-submit-btn">Student Registration</a>
+             <a href="/helpdesksystem/register.php" class="login-submit-btn">Register a Student</a>
             </div>
              <div class="form-group">
-             <a href="/helpdesksystem/check_update_student.php" class="login-submit-btn">Update Student Details</a>
+             <a href="/helpdesksystem/view_students.php" class="login-submit-btn">View all Students</a>
             </div>
              <div class="form-group">
-             <a href="/helpdesksystem/add_user.php" class="login-submit-btn">User Registration</a>
+             <a href="/helpdesksystem/check_update_student.php" class="login-submit-btn">Update a Student</a>
             </div>
             <div class="form-group">
-             <a href="/helpdesksystem/check_update_user.php" class="login-submit-btn">Update User Details</a>
+             <a href="/helpdesksystem/check_delete_student.php" class="login-submit-btn">Delete a Student</a>
             </div>
              <div class="form-group">
-             <a href="/helpdesksystem/view_tickets.php" class="login-submit-btn">Tickets View</a>
+             <a href="/helpdesksystem/add_user.php" class="login-submit-btn">Register a User</a>
             </div>
             <div class="form-group">
-             <a href="/helpdesksystem/view_replies.php" class="login-submit-btn">Tickets Reply</a>
+             <a href="/helpdesksystem/view_user.php" class="login-submit-btn">View all Users</a>
+            </div>
+            <div class="form-group">
+             <a href="/helpdesksystem/check_update_user.php" class="login-submit-btn">Update a User</a>
+            </div>
+             <div class="form-group">
+             <a href="/helpdesksystem/check_delete_user.php" class="login-submit-btn">Delete a User</a>
+            </div>
+             <div class="form-group">
+             <a href="/helpdesksystem/view_tickets.php" class="login-submit-btn">View all Tickets</a>
+            </div>
+            <div class="form-group">
+             <a href="/helpdesksystem/check_delete_ticket.php" class="login-submit-btn">Delete a Ticket & Replies</a>
+            </div>
+            <div class="form-group">
+             <a href="/helpdesksystem/view_replies.php" class="login-submit-btn">View all Replies</a>
+            </div>
+            <div class="form-group">
+             <a href="/helpdesksystem/view_report.php" class="login-submit-btn">Report</a>
             </div>
           </form>
         </div>
