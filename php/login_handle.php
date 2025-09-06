@@ -124,6 +124,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Store user type in session
         $_SESSION['user_type'] = 'user'; 
 
+        // Store User's Department
+        $_SESSION['department'] = $user['user_type'];
+
         // Redirect to staff dashboard with success parameter
         header('Location: ../staff_dashboard.php?login=success');
 

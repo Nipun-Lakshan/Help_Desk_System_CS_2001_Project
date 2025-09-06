@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 
 } else {
-    header("Location: reply.html");
+    header("Location: reply.php");
     exit();
 }
 ?>
