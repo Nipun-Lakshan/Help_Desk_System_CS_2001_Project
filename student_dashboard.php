@@ -30,12 +30,15 @@ include __DIR__ . "/php/auth_check_students.php";
              <div class="form-group">
              <a href="/helpdesksystem/create_ticket.php" class="login-submit-btn">Create a Ticket</a>
             </div>
-            <!-- <div class="form-group">
-             <a href="/helpdesksystem/view_tickets.php" class="login-submit-btn">Tickets View</a>
+            <div class="form-group">
+             <a href="/helpdesksystem/view_tickets_student.php" class="login-submit-btn">View all Tickets</a>
             </div>
             <div class="form-group">
-             <a href="/helpdesksystem/view_replies.php" class="login-submit-btn">Tickets Reply</a>
-            </div> -->
+             <a href="/helpdesksystem/check_update_ticket.php" class="login-submit-btn">Update a Ticket</a>
+            </div>
+             <div class="form-group">
+             <a href="/helpdesksystem/view_replies_student.php" class="login-submit-btn">View all Replies</a>
+            </div>
           </form>
         </div>
       </div>

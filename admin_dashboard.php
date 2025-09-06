@@ -28,6 +28,7 @@ include __DIR__ . "/php/auth_check_admin.php";
           <h2 class="login-title">Admin Dashboard</h2>
           <form class="login-form">
             <div class="form-group">
+              <label for="students">For Students</label>
              <a href="/helpdesksystem/register.php" class="login-submit-btn">Register a Student</a>
             </div>
              <div class="form-group">
@@ -40,6 +41,7 @@ include __DIR__ . "/php/auth_check_admin.php";
              <a href="/helpdesksystem/check_delete_student.php" class="login-submit-btn">Delete a Student</a>
             </div>
              <div class="form-group">
+              <label for="Users">For Users</label>
              <a href="/helpdesksystem/add_user.php" class="login-submit-btn">Register a User</a>
             </div>
             <div class="form-group">
@@ -52,6 +54,7 @@ include __DIR__ . "/php/auth_check_admin.php";
              <a href="/helpdesksystem/check_delete_user.php" class="login-submit-btn">Delete a User</a>
             </div>
              <div class="form-group">
+              <label for="tickets">For Tickets & Replies</label>
              <a href="/helpdesksystem/view_tickets.php" class="login-submit-btn">View all Tickets</a>
             </div>
             <div class="form-group">
@@ -61,6 +64,7 @@ include __DIR__ . "/php/auth_check_admin.php";
              <a href="/helpdesksystem/view_replies.php" class="login-submit-btn">View all Replies</a>
             </div>
             <div class="form-group">
+              <label for="report">Summary of System</label>
              <a href="/helpdesksystem/view_report.php" class="login-submit-btn">Report</a>
             </div>
           </form>

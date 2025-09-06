@@ -15,7 +15,7 @@ include __DIR__ . "/php/auth_check_admin.php";
   <body>
     <nav id="navbar">
       <div class="nav-container">
-        <div class="logo">Help Desk</div>
+        <div class="logo">Help Desk - Admin</div>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><button class="btn-login" onclick="window.location.href='php/logout.php'">Logout</button></li>

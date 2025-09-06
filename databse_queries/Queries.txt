@@ -1,0 +1,100 @@
+CREATE DATABASE IF NOT EXISTS helpdesk;
+USE helpdesk;
+
+CREATE TABLE IF NOT EXISTS `student`(
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `reg_number` VARCHAR(20) NOT NULL UNIQUE,
+  `index_number` VARCHAR(20) NOT NULL UNIQUE,
+  `name_with_initials` VARCHAR(100) NOT NULL,
+  `town` TEXT NOT NULL,
+  `contact_number` VARCHAR(15) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `created_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` INT AUTO_INCREMENT PRIMARY KEY,
+  `username` VARCHAR(50) NOT NULL UNIQUE,
+  `password` VARCHAR(255) NOT NULL,
+  `user_type` VARCHAR(100) NOT NULL DEFAULT 'staff',
+  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `tickets` (
+  `ticket_id` INT AUTO_INCREMENT PRIMARY KEY,
+  `student_reg_number` VARCHAR(20) NOT NULL,
+  `description` TEXT NOT NULL,
+  `department` VARCHAR(100) NOT NULL DEFAULT 'staff',
+  `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `status` ENUM('pending','completed') NOT NULL DEFAULT 'pending',
+  FOREIGN KEY (`student_reg_number`) REFERENCES `student`(`reg_number`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `reply` (
+  `reply_id` INT AUTO_INCREMENT PRIMARY KEY,
+  `ticket_id` INT NOT NULL,
+  `description` TEXT NOT NULL,
+  `replied_by` VARCHAR(100) NOT NULL,
+  `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (`ticket_id`) REFERENCES `tickets`(`ticket_id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO student (reg_number, index_number, name_with_initials, town, contact_number, password) VALUES
+('2018s16821', 's14321', 'Dissanayake S. M.', 'Jaffna', '0777123456', '2018@14321'),
+('2019s17358', 's14919', 'Hapugoda S. R. W.', 'Mullaitivu', '0777223456', '2019@14919'),
+('2019s17514', 's15013', 'Wickramatunga P.', 'Kankesanthurai', '0777222456', '2019@15013'),
+('2020s17982', 's15446', 'Abeywardane T. G. S. M.', 'Mannar', '0777222256', '2020@15446'),
+('2020s18073', 's15462', 'Imalka H. W. I.', 'Trincomalee', '0777322256', '2020@15462'),
+('2021s18545', 's15907', 'Thiwanka V. G. T.', 'Anuradhapura', '0777332256', '2021@15907'),
+('2021s18623', 's16278', 'Abeypala A. A. C. M.', 'Polonnaruwa', '0777432256', '2021@16278'),
+('2021s18646', 's16300', 'Dissanayaka M. D. M. S. B.', 'Dambulla', '0777432756', '2021@16300'),
+('2021s18660', 's16313', 'Hettige T. H.', 'Maradana', '0777432786', '2021@16313'),
+('2021s18697', 's16350', 'Rathnayake R. M. I. L.', 'Panadura', '0777432789', '2021@16350');
+
+INSERT INTO users (username, password, user_type) VALUES
+('nalin', 'nalin@1970', 'Department of Chemistry'),
+('dayal', 'dayal@1975', 'Department of Mathematics'),
+('jeyasingam', 'jeyasingam@1968', 'Department of Nuclear Science'),
+('hiran', 'hiran@1970', 'Department of Physics'),
+('hashendra', 'hashendra@1980', 'Department of Plant Sciences'),
+('rushan', 'rushan@1985', 'Department of Statistics'),
+('devaka', 'devaka@1990', 'Department of Zoology and Environment Sciences'),
+('sachini', 'sachini@1998', 'IT Services Centre (ITSC)'),
+('dilushan', 'dilushan@1998', 'Career Guidance Unit (CGU)'),
+('madhushan', 'madhushan@1998', 'Science Library'),
+('upul', 'upul@1975', "Dean's Office");
+
+INSERT INTO tickets (student_reg_number, description, department) VALUES
+('2018s16821', 'Will the CH2005 course have a chemistry practical on February 19th?', 'Department of Chemistry'),
+('2019s17358', 'Will the PM2011 Mid Examination be held as scheduled on September 8th?', 'Department of Mathematics'),
+('2019s17514', 'Need information about nuclear science lab safety protocols for NS3001 course.', 'Department of Nuclear Science'),
+('2020s17982', 'When will the PH2003 physics practical sessions be scheduled for this semester?', 'Department of Physics'),
+('2020s18073', 'Query about plant taxonomy field trip for BS1005 course requirements.', 'Department of Plant Sciences'),
+('2021s18545', 'Clarification needed on statistical software training for ST2002 workshop.', 'Department of Statistics'),
+('2021s18623', 'Inquiry about environmental science research project guidelines for ZO3005.', 'Department of Zoology and Environment Sciences'),
+('2021s18646', 'Unable to access online learning portal credentials reset request.', 'IT Services Centre (ITSC)'),
+('2021s18660', 'Need career guidance session appointment for postgraduate opportunities.', 'Career Guidance Unit (CGU)'),
+('2021s18697', 'How to access rare science journals through library digital resources?', 'Science Library'),
+('2018s16821', 'Request for duplicate academic transcript submission process clarification.', "Dean's Office"),
+('2020s17982', 'What are the required textbooks for PH2003 Physics course this semester?', 'Department of Physics');
+
+INSERT INTO reply (ticket_id, description, replied_by) VALUES
+(1, 'No', 'nalin'),
+(2, 'Yes, the exam will be held as scheduled on September 8th.', 'dayal'),
+(3, 'Lab safety protocols are available in the NS3001 course manual on Moodle.', 'jeyasingam'),
+(4, 'Physics practical sessions will begin next week. Schedule will be emailed.', 'hiran'),
+(5, 'The field trip is scheduled for March 15th. Bring your lab equipment.', 'hashendra'),
+(6, 'ST2002 software training starts Monday in Computer Lab B.', 'rushan'),
+(7, 'Research project guidelines are available on the Zoology department website.', 'devaka'),
+(8, 'Your password has been reset. Check your email for new credentials.', 'sachini'),
+(9, 'Please visit CGU office tomorrow between 9AM-4PM for appointment.', 'dilushan'),
+(10, 'Access digital journals through the Library Portal using your student login.', 'madhushan'),
+(11, 'Transcript requests take 3-5 working days. Submit form at office counter.', 'upul'),
+(12, 'Required textbooks: University Physics 15th Edition and Physics Lab Manual.', 'hiran');
+
+();
+// The syntax was built for MariaDB Server Version

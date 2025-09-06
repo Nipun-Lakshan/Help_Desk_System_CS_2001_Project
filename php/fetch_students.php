@@ -30,6 +30,7 @@ try {
                     <th>Contact Number</th>
                     <th>Password</th>
                     <th>Created Date</th>
+                    <th>Updated Date</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,6 +44,7 @@ try {
                     <td><?php echo htmlspecialchars($ticket['contact_number']); ?></td>
                     <td><?php echo htmlspecialchars($ticket['password']); ?></td>
                     <td><?php echo htmlspecialchars($ticket['created_date']); ?></td>
+                    <td><?php echo htmlspecialchars($ticket['updated_date']); ?></td>
                 </tr>
                 <?php endwhile; ?>
             </tbody>

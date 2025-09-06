@@ -54,19 +54,17 @@ include __DIR__ . "/php/auth_check_students.php";
               <label for="department">Department</label>
               <select id="department" name="department" required>
                 <option value="">-- Select a department --</option>
-                <option value="Staff">Staff</option>
-                <option value="Physics Department">Physics Department</option>
-                <option value="Mathematics Department">
-                  Mathematics Department
-                </option>
-                <option value="Chemistry Department">
-                  Chemistry Department
-                </option>
-                <option value="Zoology Department">Zoology Department</option>
-                <option value="ITSC">ITSC</option>
-                <option value="Nuclear Science Department">
-                  Nuclear Science Department
-                </option>
+                <option value="Department of Chemistry">Department of Chemistry</option>
+                <option value="Department of Mathematics">Department of Mathematics</option>
+                <option value="Department of Nuclear Science">Department of Nuclear Science</option>
+                <option value="Department of Physics">Department of Physics</option>
+                <option value="Department of Plant Sciences">Department of Plant Sciences</option>
+                <option value="Department of Statistics">Department of Statistics</option>
+                <option value="Department of Zoology and Environment Sciences">Department of Zoology and Environment Sciences</option>
+                <option value="IT Services Centre (ITSC)">IT Services Centre (ITSC)</option>
+                <option value="Career Guidance Unit (CGU)">Career Guidance Unit (CGU)</option>
+                <option value="Science Library">Science Library</option>
+                <option value="Dean's Office">Dean's Office</option>
               </select>
             </div>
             <button type="submit" class="login-submit-btn">Create</button>
