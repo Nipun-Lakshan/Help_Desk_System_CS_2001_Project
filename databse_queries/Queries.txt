@@ -68,19 +68,19 @@ INSERT INTO users (username, password, user_type) VALUES
 ('madhushan', 'madhushan@1998', 'Science Library'),
 ('upul', 'upul@1975', "Dean's Office");
 
-INSERT INTO tickets (student_reg_number, description, department) VALUES
-('2018s16821', 'Will the CH2005 course have a chemistry practical on February 19th?', 'Department of Chemistry'),
-('2019s17358', 'Will the PM2011 Mid Examination be held as scheduled on September 8th?', 'Department of Mathematics'),
-('2019s17514', 'Need information about nuclear science lab safety protocols for NS3001 course.', 'Department of Nuclear Science'),
-('2020s17982', 'When will the PH2003 physics practical sessions be scheduled for this semester?', 'Department of Physics'),
-('2020s18073', 'Query about plant taxonomy field trip for BS1005 course requirements.', 'Department of Plant Sciences'),
-('2021s18545', 'Clarification needed on statistical software training for ST2002 workshop.', 'Department of Statistics'),
-('2021s18623', 'Inquiry about environmental science research project guidelines for ZO3005.', 'Department of Zoology and Environment Sciences'),
-('2021s18646', 'Unable to access online learning portal credentials reset request.', 'IT Services Centre (ITSC)'),
-('2021s18660', 'Need career guidance session appointment for postgraduate opportunities.', 'Career Guidance Unit (CGU)'),
-('2021s18697', 'How to access rare science journals through library digital resources?', 'Science Library'),
-('2018s16821', 'Request for duplicate academic transcript submission process clarification.', "Dean's Office"),
-('2020s17982', 'What are the required textbooks for PH2003 Physics course this semester?', 'Department of Physics');
+INSERT INTO tickets (student_reg_number, description, department, status) VALUES
+('2018s16821', 'Will the CH2005 course have a chemistry practical on February 19th?', 'Department of Chemistry', 'completed'),
+('2019s17358', 'Will the PM2011 Mid Examination be held as scheduled on September 8th?', 'Department of Mathematics', 'completed'),
+('2019s17514', 'Need information about nuclear science lab safety protocols for NS3001 course.', 'Department of Nuclear Science', 'completed'),
+('2020s17982', 'When will the PH2003 physics practical sessions be scheduled for this semester?', 'Department of Physics', 'completed'),
+('2020s18073', 'Query about plant taxonomy field trip for BS1005 course requirements.', 'Department of Plant Sciences', 'completed'),
+('2021s18545', 'Clarification needed on statistical software training for ST2002 workshop.', 'Department of Statistics', 'completed'),
+('2021s18623', 'Inquiry about environmental science research project guidelines for ZO3005.', 'Department of Zoology and Environment Sciences', 'completed'),
+('2021s18646', 'Unable to access online learning portal credentials reset request.', 'IT Services Centre (ITSC)', 'completed'),
+('2021s18660', 'Need career guidance session appointment for postgraduate opportunities.', 'Career Guidance Unit (CGU)', 'completed'),
+('2021s18697', 'How to access rare science journals through library digital resources?', 'Science Library', 'completed'),
+('2018s16821', 'Request for duplicate academic transcript submission process clarification.', "Dean's Office", 'completed'),
+('2020s17982', 'What are the required textbooks for PH2003 Physics course this semester?', 'Department of Physics', 'completed');
 
 INSERT INTO reply (ticket_id, description, replied_by) VALUES
 (1, 'No', 'nalin'),

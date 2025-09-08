@@ -27,6 +27,7 @@ try {
                     <th>Password</th>
                     <th>Department</th>
                     <th>Created Date</th>
+                    <th>Updated Date</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +38,7 @@ try {
                     <td><?php echo htmlspecialchars($ticket['password']); ?></td>
                     <td><?php echo htmlspecialchars($ticket['user_type']); ?></td>
                     <td><?php echo htmlspecialchars($ticket['created_at']); ?></td>
+                    <td><?php echo htmlspecialchars($ticket['updated_at']); ?></td>
                 </tr>
                 <?php endwhile; ?>
             </tbody>

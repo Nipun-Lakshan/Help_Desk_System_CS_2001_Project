@@ -1,0 +1,324 @@
+/* CSS Reset - Removes default margins / padding and sets box - sizing for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Login button styling */
+.btn-login {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for login button */
+.btn-login:hover {
+    background-color: #3367d6;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Active state for login button */
+.btn-login:active {
+    background-color: #2a56c6;
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus state for accessibility */
+.btn-login:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.3);
+}
+
+/* Disabled state styling */
+.btn-login:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* CSS Custom Properties (Variables) Definition */
+:root {
+    /* Color palette variables */
+    --primary-color: #6366f1;
+    --secondary-color: #8b5cf6;
+    --accent-color: #f59e0b;
+    --accent-pink: #ec4899;
+    --accent-cyan: #06b6d4;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --text-light: #ffffff;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-dark: #0f172a;
+    --bg-card: rgba(255, 255, 255, 0.95);
+
+    /* Gradient definitions - Smooth transitions between two or more colours */
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-tertiary: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --gradient-elegant: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+
+    /* Shadow effects - Create depth and dimension in your designs */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+    /* Glass morphism effects - Popular UI design trend that creates translucent, glass-like elements. */
+    --glass: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+/* General body styles - Targets the <body> HTML element directly without calling using class attribute. */
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+    line-height: 1.7;
+    color: var(--text-primary);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    background: var(--bg-secondary);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styles - Modern Glass Effect */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Navigation container */
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo styling with gradient text effect */
+.logo {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: var(--gradient-elegant);
+    -webkit-background-clip: text;
+    /* Vendor-prefixed property that allows you to clip an element's background 
+    to the shape of its text content, creating a text-fill effect. */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+/* Navigation links container */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+/* Navigation link styling */
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+/* Hover effect for navigation links */
+.nav-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+/* Animated underline effect for navigation links */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background: var(--gradient-primary);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+    border-radius: 1px;
+}
+
+/* Expand underline on hover */
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section - Gradient Background */
+.hero {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+    margin-top: 80px;
+    position: relative;
+    z-index: 1;
+    background: var(--gradient-elegant);
+    overflow: hidden;
+    flex: 1;
+}
+
+/* Subtle background pattern for hero section */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    animation: float 25s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+/* Tickets Container - Glass Card Effect */
+.tickets-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background: var(--bg-card);
+    border-radius: 12px;
+    box-shadow: var(--shadow-2xl);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    z-index: 10;
+}
+
+/* Main title styling */
+.login-title {
+    text-align: center;
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer styling */
+.footer {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #312e81 100%);
+    color: var(--text-light);
+    padding: 3rem 0 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin-top: auto;
+}
+
+/* Footer text styling */
+.footer-left p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin: 0;
+    padding-left: 2rem;
+    /* Added padding to create the gap */
+}
+
+/* FAQ Topic Label */
+.faq-topic-label {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 2rem 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* FAQ Question Container */
+.faq-question-container {
+    background: white;
+    border-radius: 8px;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for FAQ questions */
+.faq-question-container:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+/* FAQ Question */
+.faq-question {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+/* FAQ Answer Container */
+.faq-answer-container {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+/* FAQ Answer */
+.faq-answer {
+    color: var(--bg-dark);
+    line-height: 1.5;
+}
+
+/* Footer - Duplicate rule, consider consolidating */
+.footer {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #312e81 100%);
+    color: var(--text-light);
+    padding: 3rem 0 2rem;
+    margin-top: auto;
+}
+
+/* Footer text - Duplicate rule, consider consolidating */
+.footer-left p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin: 0;
+    padding-left: 2rem;
+}

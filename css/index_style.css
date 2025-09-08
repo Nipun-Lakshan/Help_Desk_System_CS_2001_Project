@@ -1,9 +1,12 @@
+/* CSS Reset - Removes default margins/padding and sets box-sizing for all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* Includes padding/border in element's total width/height */
 }
 
+/* Login button styling */
 .btn-login {
     display: inline-block;
     padding: 8px 20px;
@@ -17,75 +20,104 @@
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    /* Smooth transition for all properties */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
 }
 
+/* Hover state for login button [:hover - Special Class To Identify Motion]*/
 .btn-login:hover {
     background-color: #3367d6;
     transform: translateY(-1px);
+    /* Slight upward movement */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    /* Enhanced shadow on hover */
 }
 
+/* Active/pressed state for login button */
 .btn-login:active {
     background-color: #2a56c6;
     transform: translateY(0);
+    /* Return to original position */
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    /* Reduced shadow */
 }
 
+/* Focus state for accessibility */
 .btn-login:focus {
     outline: none;
+    /* Remove default outline */
     box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.3);
+    /* Custom focus indicator */
 }
 
+/* Disabled state styling */
 .btn-login:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
+    /* Show disabled cursor */
     transform: none;
     box-shadow: none;
 }
 
+/* Navigation bar styling - fixed at top */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
+    /* Semi-transparent white */
     backdrop-filter: blur(20px);
+    /* Frosted glass effect */
     z-index: 1000;
+    /* Ensure nav stays on top */
     padding: 1rem 0;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Smooth transition */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Container for nav content */
 .nav-container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
     justify-content: space-between;
+    /* Space between logo and nav links */
     align-items: center;
 }
 
+/* Logo styling with gradient text effect */
 .logo {
     font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
     font-size: 1.75rem;
     font-weight: 700;
     background: var(--gradient-elegant);
+    /* Using CSS variable */
     -webkit-background-clip: text;
+    /* Clip background to text */
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    /* Make text color transparent */
     letter-spacing: -0.5px;
 }
 
+/* Navigation links container */
 .nav-links {
     display: flex;
     list-style: none;
     gap: 2.5rem;
+    /* Space between links */
     align-items: center;
 }
 
+/* Navigation link styling */
 .nav-links a {
+    /* nav - links Selects all <a> elements - descendant selector */
     text-decoration: none;
     color: var(--text-primary);
+    /* Using CSS variable */
     font-weight: 500;
     font-size: 0.95rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -93,11 +125,13 @@ nav {
     padding: 0.5rem 0;
 }
 
+/* Hover state for navigation links */
 .nav-links a:hover {
     color: var(--primary-color);
     transform: translateY(-1px);
 }
 
+/* Underline effect on hover for navigation links */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -106,15 +140,18 @@ nav {
     bottom: 0;
     left: 50%;
     background: var(--gradient-primary);
+    /* Gradient underline */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateX(-50%);
     border-radius: 1px;
 }
 
+/* Expand underline on hover */
 .nav-links a:hover::after {
     width: 100%;
 }
 
+/* Footer styling with gradient background */
 .footer {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #312e81 100%);
     color: var(--text-light);
@@ -124,14 +161,17 @@ nav {
     overflow: hidden;
 }
 
+/* Footer text styling */
 .footer-left p {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
     margin: 0;
 }
 
+/* CSS custom properties (variables) for consistent theming [:root - Make it available globally.]*/
 :root {
     --primary-color: #6366f1;
+    /* CSS Variable */
     --secondary-color: #8b5cf6;
     --accent-color: #f59e0b;
     --accent-pink: #ec4899;
@@ -156,15 +196,18 @@ nav {
     --glass-border: rgba(255, 255, 255, 0.2);
 }
 
+/* Base body styling */
 body {
     font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
     line-height: 1.7;
     color: var(--text-primary);
     scroll-behavior: smooth;
+    /* Smooth scrolling */
     overflow-x: hidden;
     background: var(--bg-primary);
 }
 
+/* Hero section styling */
 .hero {
     height: 85vh;
     display: flex;
@@ -175,6 +218,7 @@ body {
     overflow: hidden;
 }
 
+/* Background pattern for hero section */
 .hero::before {
     content: '';
     position: absolute;
@@ -187,6 +231,7 @@ body {
     opacity: 0.7;
 }
 
+/* Radial gradient overlay for hero section */
 .hero::after {
     content: '';
     position: absolute;
@@ -199,7 +244,9 @@ body {
     animation: pulse 4s ease-in-out infinite alternate;
 }
 
+/* Content container within hero section */
 .hero-content {
+    /* Properties / var(--text-light :- Variable) */
     text-align: center;
     color: var(--text-light);
     z-index: 2;
@@ -208,6 +255,7 @@ body {
     padding: 0 2rem;
 }
 
+/* Main heading in hero section */
 .hero h1 {
     font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
     font-size: 5rem;
@@ -216,10 +264,12 @@ body {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease 0.4s forwards;
+    /* Fade-in animation */
     line-height: 1.1;
     letter-spacing: -1px;
 }
 
+/* Subtitle in hero section */
 .hero .subtitle {
     font-size: 1.3rem;
     margin-bottom: 3rem;
@@ -234,13 +284,18 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+/* Keyframes for fade-in upward animation */
 @keyframes fadeInUp {
+
+    /* Any Name can be used. Keyframes - Animation rule in CSS */
     to {
+        /* Declaration the animation */
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+/* General container class for content */
 .container {
     max-width: 1400px;
     margin: 0 auto;
