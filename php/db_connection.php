@@ -2,7 +2,7 @@
 
 // Defines the server/host name where MySQL database is running.
 // "localhost" means the database is on the same server as the PHP script.
-$servername = "localhost";
+$servername = "localhost"; // IP Address: 127.0.0.1
 
 // Defines the username for MySQL database authentication.
 // 'root' is the default administrative username in MySQL.

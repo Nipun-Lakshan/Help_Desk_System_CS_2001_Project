@@ -284,6 +284,13 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+/* General container class for content */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
 /* Keyframes for fade-in upward animation */
 @keyframes fadeInUp {
 
@@ -293,11 +300,4 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* General container class for content */
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
 }

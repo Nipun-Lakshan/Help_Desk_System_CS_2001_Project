@@ -1,9 +1,11 @@
+/* GLOBAL RESET & BASE STYLES */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* BUTTON STYLES */
 .btn-login {
   display: inline-block;
   padding: 8px 20px;
@@ -44,6 +46,7 @@
   box-shadow: none;
 }
 
+/* NAVIGATION STYLES */
 nav {
   position: fixed;
   top: 0;
@@ -115,6 +118,7 @@ nav {
   width: 100%;
 }
 
+/* FOOTER STYLES */
 .footer {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #312e81 100%);
   color: var(--text-light);
@@ -131,6 +135,7 @@ nav {
   margin: 0;
 }
 
+/* CSS VARIABLES (CUSTOM PROPERTIES) */
 :root {
   --primary-color: #6366f1;
   --secondary-color: #8b5cf6;
@@ -157,6 +162,7 @@ nav {
   --glass-border: rgba(255, 255, 255, 0.2);
 }
 
+/* BODY & TYPOGRAPHY STYLES */
 body {
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   line-height: 1.7;
@@ -169,6 +175,7 @@ body {
   min-height: 100vh;
 }
 
+/* HERO SECTION STYLES */
 .hero {
   min-height: calc(100vh - 200px);
   display: flex;
@@ -244,19 +251,14 @@ body {
   margin-right: auto;
 }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* LAYOUT CONTAINER */
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
+/* LOGIN FORM STYLES */
 .login-form-container {
   display: flex;
   justify-content: center;
@@ -288,32 +290,7 @@ body {
   justify-content: center;
 }
 
-@media (max-width: 768px) {
-  .login-card {
-    max-width: 90%;
-    padding: 1.5rem;
-  }
-
-  .hero {
-    margin-top: 70px;
-    min-height: calc(100vh - 110px);
-  }
-}
-
-@media (max-height: 700px) {
-  .login-card {
-    transform: scale(0.9);
-    margin: 1rem auto;
-  }
-}
-
-@media (max-height: 600px) {
-  .login-card {
-    transform: scale(0.85);
-    margin: 0.5rem auto;
-  }
-}
-
+/* FORM ELEMENT STYLES */
 .login-title {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -397,24 +374,4 @@ a.login-submit-btn {
 
 .forgot-password:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .login-card {
-    padding: 2rem;
-  }
-
-  .login-title {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .login-card {
-    padding: 1.5rem;
-  }
-
-  .form-group input {
-    padding: 10px 14px;
-  }
 }

@@ -1,0 +1,382 @@
+/**
+ * Global Reset and Base Styles.
+ * Resets default margins/paddings and sets box-sizing for consistent sizing.
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/**
+ * Login Button Component.
+ * Reusable button with hover, active, focus and disabled states.
+ */
+.btn-login {
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover state - subtle elevation and color change. */
+.btn-login:hover {
+  background-color: #3367d6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Active state - pressed down effect */
+.btn-login:active {
+  background-color: #2a56c6;
+  transform: translateY(0);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus state - accessibility consideration */
+.btn-login:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.3);
+}
+
+/* Disabled state - visual indication of inactive button. */
+.btn-login:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/**
+ * Design System Variables.
+ * CSS custom properties for consistent theming across the application.
+ */
+:root {
+  /* Color Palette. */
+  --primary-color: #6366f1;
+  --secondary-color: #8b5cf6;
+  --accent-color: #f59e0b;
+  --accent-pink: #ec4899;
+  --accent-cyan: #06b6d4;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-light: #ffffff;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-dark: #0f172a;
+  --bg-card: rgba(255, 255, 255, 0.95);
+
+  /* Gradient Definitions */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-tertiary: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-elegant: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+
+  /* Shadow Elevations */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Glass Morphism Effects */
+  --glass: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+/**
+ * Base Body Styles.
+ * Sets up foundational typography and layout structure.
+ */
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+  line-height: 1.7;
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Navigation Bar Component.
+ * Fixed header with glass morphism effect.
+ */
+#navbar {
+  /* This is the "ID Selector". It's used to apply styles to a single HTML element with a unique id attribute. */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Navigation container for proper alignment */
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand logo with gradient text effect */
+.logo {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: var(--gradient-elegant);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* Individual navigation link styles */
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+/* Hover state for navigation links */
+.nav-links a:hover {
+  color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+/* Animated underline effect for navigation links */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: var(--gradient-primary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
+  border-radius: 1px;
+}
+
+/* Expand underline on hover */
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/**
+ * Hero Section.
+ * Full-width banner with gradient background and subtle animation.
+ */
+.hero {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  margin-top: 80px;
+  position: relative;
+  z-index: 1;
+  background: var(--gradient-elegant);
+  overflow: hidden;
+  flex: 1;
+}
+
+/* Animated grid pattern overlay. */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  animation: float 25s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+/**
+ * Tickets Container
+ * Glass card effect container for content
+ */
+.tickets-container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow-2xl);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  position: relative;
+  z-index: 10;
+}
+
+/* Main title styling */
+.login-title {
+  text-align: center;
+  color: var(--text-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/**
+ * Tickets Table Container
+ * Wrapper for the data table with card styling
+ */
+.tickets-table-container {
+  width: 100%;
+  border-radius: 8px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-md);
+}
+
+/**
+ * Tickets Table
+ * Responsive table with fixed layout and zebra striping
+ */
+.tickets-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: var(--bg-card);
+  table-layout: fixed;
+}
+
+/* Table header and cell base styling */
+.tickets-table th,
+.tickets-table td {
+  padding: 12px 8px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  word-wrap: break-word;
+}
+
+/* Table header specific styles with gradient background */
+.tickets-table th {
+  background: var(--gradient-primary);
+  color: white;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+}
+
+/* Row hover effect for better user interaction */
+.tickets-table tr:hover td {
+  background: rgba(99, 102, 241, 0.05);
+}
+
+/* Rounded corners for first header cell */
+.tickets-table th:first-child {
+  border-top-left-radius: 8px;
+}
+
+/* Rounded corners for last header cell */
+.tickets-table th:last-child {
+  border-top-right-radius: 8px;
+}
+
+/**
+ * Table Column Width Definitions
+ * Ensures consistent column proportions across screen sizes
+ */
+
+/* ID */
+.tickets-table th:nth-child(1), .tickets-table td:nth-child(1) {
+  width: 8%;
+}
+
+/* Reg Number */
+.tickets-table th:nth-child(2), .tickets-table td:nth-child(2) {
+  width: 12%;
+}
+
+/* Index Number */
+.tickets-table th:nth-child(3), .tickets-table td:nth-child(3) {
+  width: 10%;
+}
+
+/* Name */
+.tickets-table th:nth-child(4), .tickets-table td:nth-child(4) {
+  width: 15%;
+}
+
+/* Town */
+.tickets-table th:nth-child(5), .tickets-table td:nth-child(5) {
+  width: 10%;
+}
+
+/* Contact Number */
+.tickets-table th:nth-child(6), .tickets-table td:nth-child(6) {
+  width: 12%;
+}
+
+/* Password */
+.tickets-table th:nth-child(7), .tickets-table td:nth-child(7) {
+  width: 12%;
+}
+
+/* Created Date */
+.tickets-table th:nth-child(8), .tickets-table td:nth-child(8) {
+  width: 11%;
+}
+
+/* Updated Date */
+.tickets-table th:nth-child(9), .tickets-table td:nth-child(9) {
+  width: 10%;
+}
+
+/**
+ * Footer Component.
+ * Gradient background with subtle border.
+ */
+.footer {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #312e81 100%);
+  color: var(--text-light);
+  padding: 3rem 0 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+/* Footer text styling with left alignment */
+.footer-left p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin: 0;
+  padding-left: 2rem;
+}

@@ -19,7 +19,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 /**
- * Check if the request method is POST. (form submission)
+ * Check if the request method is POST. (Form Submission)
  * This ensures the script only processes data from login form submissions.
  */
 
@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['login_error'] = "Database error. Please try again.";
 
         // Redirect back to login page.
-        header('Location: ../login.html');
+        header('Location: ../login.html?login=failed');
 
         // Terminate script execution
         exit();
@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['login_error'] = "Database error. Please try again.";
 
         // Redirect back to login page.
-        header('Location: ../login.html');
+        header('Location: ../login.html?login=failed');
 
         // Terminate script execution.
         exit();
@@ -160,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['login_error'] = "Database error. Please try again.";
 
         // Redirect back to login page.
-        header('Location: ../login.html');
+        header('Location: ../login.html?login=failed');
 
         // Terminate script execution.
         exit();
@@ -177,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['login_error'] = "Database error. Please try again.";
 
         // Redirect back to login page.
-        header('Location: ../login.html');
+        header('Location: ../login.html?login=failed');
 
         // Terminate script execution
         exit();
@@ -227,7 +227,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['login_error'] = "Invalid username or password";
 
     // Redirect back to login page.
-    header('Location: ../login.html');
+    header('Location: ../login.html?login=failed');
 
     // Terminate script execution.
     exit();
@@ -238,7 +238,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      * If request method is not POST, redirect to login page.
      * Prevents direct access to this script URL.
      */
-    header('Location: ../login.html');
+    header('Location: ../login.html?login=failed');
 
     // Terminate script execution
     exit();
