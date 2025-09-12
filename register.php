@@ -34,6 +34,9 @@ include __DIR__ . "/php/auth_check_admin.php";
                 id="reg_number"
                 name="reg_number"
                 placeholder="Enter the student registration number"
+                maxlength="10"
+                minlength="10"
+                pattern="^\d{4}s\d{5}$"
                 required
               />
             </div>
@@ -44,6 +47,9 @@ include __DIR__ . "/php/auth_check_admin.php";
                 id="index_number"
                 name="index_number"
                 placeholder="Enter the student index number"
+                pattern="^s\d{5}$"
+                maxlength="6"
+                minlength="6"
                 required
               />
             </div>
@@ -54,6 +60,8 @@ include __DIR__ . "/php/auth_check_admin.php";
                 id="name_with_initials"
                 name="name_with_initials"
                 placeholder="Enter the student name with initials"
+                pattern="[a-zA-Z .]{1,100}"
+                maxlength="100"
                 required
               />
             </div>
@@ -63,6 +71,8 @@ include __DIR__ . "/php/auth_check_admin.php";
                 id="town"
                 name="town"
                 placeholder="Enter student town"
+                pattern=^([A-Z][a-z]+)(\s[A-Z][a-z]+)?$
+                maxlength="100"
                 required
               ></input>
             </div>
@@ -73,6 +83,9 @@ include __DIR__ . "/php/auth_check_admin.php";
                 id="contact_number"
                 name="contact_number"
                 placeholder="Enter student contact number"
+                pattern="^(070|071|072|074|075|076|077|078)\d{7}$"
+                maxlength="10"
+                minlength="10"
                 required
               />
             </div>
@@ -83,6 +96,9 @@ include __DIR__ . "/php/auth_check_admin.php";
                 id="password"
                 name="password"
                 placeholder="Enter student password"
+                maxlength="10"
+                minlength="10"
+                pattern="^\d{4}@\d{5}$"
                 required
               />
             </div>

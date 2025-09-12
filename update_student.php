@@ -38,6 +38,17 @@ unset($_SESSION['student_data']);
         <div class="login-card">
           <h2 class="login-title">Student Details</h2>
             <form class="login-form" action="php/update_handle.php" method="POST">
+              <div class="form-group">
+              <label for="reg_number">Student ID</label>
+              <input
+                type="text"
+                id="id"
+                name="id"
+                value="<?php echo htmlspecialchars($student_data['id']); ?>"
+                readonly
+                required
+              />
+            </div>
             <div class="form-group">
               <label for="reg_number">Student Registration Number</label>
               <input

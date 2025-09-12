@@ -42,8 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Check Admin Login Authentication
     if ($username === 'admin' && $password === 'admin') { 
-        // Set session variables for admin user.
+        // "===" - To check values and types are equal.
+        // "==" - To check values are equal.
 
+        // Set session variables for admin user.
         $_SESSION['user_id'] = 0; // Special ID for admin.
         $_SESSION['username'] = 'admin';  // Store admin username.
         $_SESSION['user_type'] = 'admin'; // Set user type as admin.

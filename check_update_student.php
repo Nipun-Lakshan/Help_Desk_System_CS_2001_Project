@@ -51,6 +51,9 @@ unset($_SESSION['submitted_reg_number']);
                 id="reg_number_search"
                 name="reg_number"
                 placeholder="Enter the student registration number"
+                maxlength="10"
+                minlength="10"
+                pattern="^\d{4}s\d{5}$"
                 value="<?php echo htmlspecialchars($submitted_reg_number); ?>""
                 required
               />

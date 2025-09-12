@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Document metadata -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Help Desk - Login</title>
+
+    <!-- External stylesheet for login page styling -->
     <link href="css/login_style.css" rel="stylesheet" />
   </head>
+
   <body>
+    <!-- Main navigation bar -->
     <nav id="navbar">
       <div class="nav-container">
+        <!-- Application logo / brand name -->
         <div class="logo">Help Desk</div>
+
+        <!-- Navigation links -->
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <!-- Logout button with JavaScript redirection -->
+          <li>
+            <button
+              class="btn-login"
+              onclick="window.location.href='php/logout.php'"
+            >
+              Logout
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
+
+    <!-- Main content section -->
     <section id="home" class="hero">
       <div class="login-form-container">
+        <!-- Login card container -->
         <div class="login-card">
-  <h2 class="login-title">Log in</h2>
-  <form class="login-form" action="php/login_handle.php" method="POST">
+          <!-- Login form title -->
+          <h2 class="login-title">Log in</h2>
+
+          <!-- Login form with POST method to handle submission -->
+          <form class="login-form" action="php/login_handle.php" method="POST">
+            <!-- Username input field -->
             <div class="form-group">
               <label for="username">Username</label>
               <input
@@ -30,6 +55,8 @@
                 required
               />
             </div>
+
+            <!-- Password input field -->
             <div class="form-group">
               <label for="password">Password</label>
               <input
@@ -40,15 +67,20 @@
                 required
               />
             </div>
+
+            <!-- Form submission button -->
             <button type="submit" class="login-submit-btn">Log In</button>
           </form>
         </div>
       </div>
     </section>
+
+    <!-- Page footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
           <div class="footer-left">
+            <!-- Copyright information -->
             <p>
               &copy; 2025 Faculty of Science, University of Colombo. All rights
               reserved.

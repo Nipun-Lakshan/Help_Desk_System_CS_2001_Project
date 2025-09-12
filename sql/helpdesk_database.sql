@@ -1,7 +1,12 @@
+-- Help Desk Database Schema.
+-- This script creates the database and tables for a help desk ticket system.
+
+-- Create database if it doesn't exist.
 CREATE DATABASE IF NOT EXISTS helpdesk;
 USE helpdesk;
 
-CREATE TABLE IF NOT EXISTS `student`(
+-- Students Table: Stores Student Information.
+CREATE TABLE IF NOT EXISTS `helpdesk`.`student`(
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `reg_number` VARCHAR(20) NOT NULL UNIQUE,
   `index_number` VARCHAR(20) NOT NULL UNIQUE,
@@ -13,7 +18,8 @@ CREATE TABLE IF NOT EXISTS `student`(
   `updated_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE IF NOT EXISTS `users` (
+-- Users Table: Stores staff / user accounts.
+CREATE TABLE IF NOT EXISTS `helpdesk`.`users` (
   `user_id` INT AUTO_INCREMENT PRIMARY KEY,
   `username` VARCHAR(50) NOT NULL UNIQUE,
   `password` VARCHAR(255) NOT NULL,
@@ -22,7 +28,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE IF NOT EXISTS `tickets` (
+-- Tickets table: Stores help desk tickets submitted by students.
+CREATE TABLE IF NOT EXISTS `helpdesk`.`tickets` (
   `ticket_id` INT AUTO_INCREMENT PRIMARY KEY,
   `student_reg_number` VARCHAR(20) NOT NULL,
   `description` TEXT NOT NULL,
@@ -33,7 +40,8 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   FOREIGN KEY (`student_reg_number`) REFERENCES `student`(`reg_number`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE IF NOT EXISTS `reply` (
+-- Reply table: Stores responses to tickets.
+CREATE TABLE IF NOT EXISTS `helpdesk`.`reply` (
   `reply_id` INT AUTO_INCREMENT PRIMARY KEY,
   `ticket_id` INT NOT NULL,
   `description` TEXT NOT NULL,
@@ -43,7 +51,8 @@ CREATE TABLE IF NOT EXISTS `reply` (
   FOREIGN KEY (`ticket_id`) REFERENCES `tickets`(`ticket_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO student (reg_number, index_number, name_with_initials, town, contact_number, password) VALUES
+-- Insert sample student data.
+INSERT INTO helpdesk.student (reg_number, index_number, name_with_initials, town, contact_number, password) VALUES
 ('2018s16821', 's14321', 'Dissanayake S. M.', 'Jaffna', '0777123456', '2018@14321'),
 ('2019s17358', 's14919', 'Hapugoda S. R. W.', 'Mullaitivu', '0777223456', '2019@14919'),
 ('2019s17514', 's15013', 'Wickramatunga P.', 'Kankesanthurai', '0777222456', '2019@15013'),
@@ -55,7 +64,8 @@ INSERT INTO student (reg_number, index_number, name_with_initials, town, contact
 ('2021s18660', 's16313', 'Hettige T. H.', 'Maradana', '0777432786', '2021@16313'),
 ('2021s18697', 's16350', 'Rathnayake R. M. I. L.', 'Panadura', '0777432789', '2021@16350');
 
-INSERT INTO users (username, password, user_type) VALUES
+-- Insert sample user/staff data.
+INSERT INTO helpdesk.users (username, password, user_type) VALUES
 ('nalin', 'nalin@1970', 'Department of Chemistry'),
 ('dayal', 'dayal@1975', 'Department of Mathematics'),
 ('jeyasingam', 'jeyasingam@1968', 'Department of Nuclear Science'),
@@ -68,7 +78,8 @@ INSERT INTO users (username, password, user_type) VALUES
 ('madhushan', 'madhushan@1998', 'Science Library'),
 ('upul', 'upul@1975', "Dean's Office");
 
-INSERT INTO tickets (student_reg_number, description, department, status) VALUES
+-- Insert sample ticket data.
+INSERT INTO helpdesk.tickets (student_reg_number, description, department, status) VALUES
 ('2018s16821', 'Will the CH2005 course have a chemistry practical on February 19th?', 'Department of Chemistry', 'completed'),
 ('2019s17358', 'Will the PM2011 Mid Examination be held as scheduled on September 8th?', 'Department of Mathematics', 'completed'),
 ('2019s17514', 'Need information about nuclear science lab safety protocols for NS3001 course.', 'Department of Nuclear Science', 'completed'),
@@ -82,7 +93,8 @@ INSERT INTO tickets (student_reg_number, description, department, status) VALUES
 ('2018s16821', 'Request for duplicate academic transcript submission process clarification.', "Dean's Office", 'completed'),
 ('2020s17982', 'What are the required textbooks for PH2003 Physics course this semester?', 'Department of Physics', 'completed');
 
-INSERT INTO reply (ticket_id, description, replied_by) VALUES
+-- Insert sample reply data.
+INSERT INTO helpdesk.reply (ticket_id, description, replied_by) VALUES
 (1, 'No', 'nalin'),
 (2, 'Yes, the exam will be held as scheduled on September 8th.', 'dayal'),
 (3, 'Lab safety protocols are available in the NS3001 course manual on Moodle.', 'jeyasingam'),
@@ -95,6 +107,3 @@ INSERT INTO reply (ticket_id, description, replied_by) VALUES
 (10, 'Access digital journals through the Library Portal using your student login.', 'madhushan'),
 (11, 'Transcript requests take 3-5 working days. Submit form at office counter.', 'upul'),
 (12, 'Required textbooks: University Physics 15th Edition and Physics Lab Manual.', 'hiran');
-
-();
-// The syntax was built for MariaDB Server Version
