@@ -21,3 +21,12 @@ VALUES
 
 -- Purpose: Retrieves and orders all records from the 'student' table by ID in ascending order.
 SELECT * FROM student ORDER BY id ASC;
+
+-- File Name: update_handle.php
+-- ============================
+
+-- Purpose: Retrieve all information for the student with the specified registration number.
+SELECT * FROM student WHERE reg_number = "2023s20371";
+
+-- Purpose: Update student information for a specific registration number.
+UPDATE student SET name_with_initials = "Dissanayake S. M.", town = "Jaffna", contact_number = "0777123456", password = "2018@14321" WHERE reg_number = "2018s16821";

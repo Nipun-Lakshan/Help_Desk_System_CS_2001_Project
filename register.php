@@ -93,7 +93,7 @@ include __DIR__ . "/php/auth_check_admin.php";
                 id="town"
                 name="town"
                 placeholder="Mount Lavinia"
-                pattern=^([A-Z][a-z]+)(\s[A-Z][a-z]+)?$
+                pattern="^([A-Z][a-z]+)(\s[A-Z][a-z]+)?$"
                 maxlength="100"
                 required
               ></input>
