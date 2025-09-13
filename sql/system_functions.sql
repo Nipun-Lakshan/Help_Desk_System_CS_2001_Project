@@ -69,3 +69,11 @@ SELECT * FROM users WHERE username = "hiran";
 
 -- Delete a user record by username.
 DELETE FROM users WHERE username = "kamindhu";
+
+-- File Name: fetch_tickets.php
+-- ============================
+
+-- Select all tickets sorted by date in descending order.
+SELECT * FROM tickets ORDER BY date DESC;
+
+--

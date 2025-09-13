@@ -20,15 +20,17 @@ unset($_SESSION['user_data']);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Help Desk - Delete a Ticket</title>
+    <title>Help Desk - Delete a Ticket & Replies</title>
     <link href="css/create_ticket_style.css" rel="stylesheet" />
   </head>
   <body>
     <nav id="navbar">
       <div class="nav-container">
-        <div class="logo">Help Desk</div>
+        <div class="logo">Help Desk - Admin</div>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><a href="admin_dashboard.php">Dashboard</a></li>
+          <li><a href="faq.html">FAQs</a></li>
           <li><button class="btn-login" onclick="window.location.href='php/logout.php'">Logout</button></li>
         </ul>
       </div>
@@ -36,7 +38,7 @@ unset($_SESSION['user_data']);
     <section id="home" class="hero">
       <div class="login-form-container">
         <div class="login-card">
-          <h2 class="login-title">Delete a Ticket</h2>
+          <h2 class="login-title">Ticket Details</h2>
           <form
             class="login-form"
             action="php/delete_ticket_handle.php"

@@ -21,15 +21,17 @@ unset($_SESSION['submitted_username']);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Help Desk - Delete a Ticket</title>
+    <title>Help Desk - Delete a Ticket & Replies</title>
     <link href="css/update_style.css" rel="stylesheet" />
   </head>
   <body>
     <nav id="navbar">
       <div class="nav-container">
-        <div class="logo">Help Desk</div>
+        <div class="logo">Help Desk - Admin</div>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><a href="admin_dashboard.php">Dashboard</a></li>
+          <li><a href="faq.html">FAQs</a></li>
           <li><button class="btn-login" onclick="window.location.href='php/logout.php'">Logout</button></li>
         </ul>
       </div>
@@ -37,16 +39,12 @@ unset($_SESSION['submitted_username']);
     <section id="home" class="hero">
       <div class="login-form-container">
         <div class="login-card">
-
-            <!------------------------------------------------------------------------------------------------------------>
           <?php if (!empty($delete_message)): ?>
-            <div class="message <?php echo strpos($delete_message, 'successfully') !== false ? 'success' : 'error'; ?>">
+            <div>
               <?php echo htmlspecialchars($delete_message); ?>
             </div>
           <?php endif; ?>
-          <!------------------------------------------------------------------------------------------------------------>
-
-          <h2 class="login-title">Delete a Ticket</h2>
+          <h2 class="login-title">Delete a Ticket & Replies</h2>
           <form class="login-form" action="php/delete_ticket_handle.php" method="POST">
             <div class="form-group">
               <label for="username">Ticket ID</label>
