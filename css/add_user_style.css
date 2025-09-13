@@ -1,9 +1,21 @@
+/*
+ * GLOBAL RESET & BASE STYLES
+ * ==========================
+ *
+ * Resets default browser styles and establishes consistent box model.
+ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/*
+ * BUTTON COMPONENT: Login
+ * =======================
+ *
+ * Reusable button styles with hover, active, focus and disabled states.
+ */
 .btn-login {
   display: inline-block;
   padding: 8px 20px;
@@ -20,23 +32,27 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Hover state - elevation and color enhancement */
 .btn-login:hover {
   background-color: #3367d6;
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Active state - pressed down effect */
 .btn-login:active {
   background-color: #2a56c6;
   transform: translateY(0);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* Focus state - accessibility consideration */
 .btn-login:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.3);
 }
 
+/* Disabled state - visual indication of inactive button */
 .btn-login:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
@@ -44,6 +60,12 @@
   box-shadow: none;
 }
 
+/*
+ * NAVIGATION BAR
+ * ==============
+ *
+ * Fixed header with glass morphism effect and smooth transitions.
+ */
 nav {
   position: fixed;
   top: 0;
@@ -56,6 +78,7 @@ nav {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Navigation container for proper alignment */
 .nav-container {
   max-width: 1400px;
   margin: 0 auto;
@@ -65,6 +88,7 @@ nav {
   align-items: center;
 }
 
+/* Brand logo with gradient text effect */
 .logo {
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 1.75rem;
@@ -76,6 +100,7 @@ nav {
   letter-spacing: -0.5px;
 }
 
+/* Navigation links container */
 .nav-links {
   display: flex;
   list-style: none;
@@ -83,6 +108,7 @@ nav {
   align-items: center;
 }
 
+/* Individual navigation link styles */
 .nav-links a {
   text-decoration: none;
   color: var(--text-primary);
@@ -93,11 +119,13 @@ nav {
   padding: 0.5rem 0;
 }
 
+/* Hover state for navigation links */
 .nav-links a:hover {
   color: var(--primary-color);
   transform: translateY(-1px);
 }
 
+/* Animated underline effect for navigation links */
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -111,10 +139,17 @@ nav {
   border-radius: 1px;
 }
 
+/* Expand underline on hover */
 .nav-links a:hover::after {
   width: 100%;
 }
 
+/*
+ * FOOTER SECTION
+ * ==============
+ *
+ * Gradient background footer with subtle border.
+ */
 .footer {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #312e81 100%);
   color: var(--text-light);
@@ -125,13 +160,21 @@ nav {
   margin-top: auto;
 }
 
+/* Footer text styling */
 .footer-left p {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
   margin: 0;
 }
 
+/*
+ * DESIGN SYSTEM VARIABLES
+ * =======================
+ *
+ * CSS custom properties for consistent theming across the application.
+ */
 :root {
+  /* Color Palette */
   --primary-color: #6366f1;
   --secondary-color: #8b5cf6;
   --accent-color: #f59e0b;
@@ -144,19 +187,31 @@ nav {
   --bg-secondary: #f8fafc;
   --bg-dark: #0f172a;
   --bg-card: rgba(255, 255, 255, 0.95);
+
+  /* Gradient Definitions */
   --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   --gradient-tertiary: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   --gradient-elegant: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+
+  /* Shadow Elevations */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Glass Morphism Effects */
   --glass: rgba(255, 255, 255, 0.15);
   --glass-border: rgba(255, 255, 255, 0.2);
 }
 
+/*
+ * BASE BODY STYLES
+ * ================
+ *
+ * Sets up foundational typography and layout structure.
+ */
 body {
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   line-height: 1.7;
@@ -169,6 +224,12 @@ body {
   min-height: 100vh;
 }
 
+/*
+ * HERO SECTION
+ * ============
+ *
+ * Full-width banner with gradient background and subtle animation effects.
+ */
 .hero {
   min-height: calc(100vh - 200px);
   display: flex;
@@ -186,6 +247,7 @@ body {
   height: auto;
 }
 
+/* Animated grid pattern overlay */
 .hero::before {
   content: '';
   position: absolute;
@@ -198,6 +260,7 @@ body {
   opacity: 0.7;
 }
 
+/* Subtle radial gradient overlay */
 .hero::after {
   content: '';
   position: absolute;
@@ -210,6 +273,7 @@ body {
   animation: pulse 4s ease-in-out infinite alternate;
 }
 
+/* Hero content container */
 .hero-content {
   text-align: center;
   color: var(--text-light);
@@ -219,6 +283,7 @@ body {
   padding: 0 2rem;
 }
 
+/* Main hero heading */
 .hero h1 {
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 5rem;
@@ -231,6 +296,7 @@ body {
   letter-spacing: -1px;
 }
 
+/* Hero subtitle */
 .hero .subtitle {
   font-size: 1.3rem;
   margin-bottom: 3rem;
@@ -244,6 +310,12 @@ body {
   margin-right: auto;
 }
 
+/*
+ * ANIMATIONS
+ * ==========
+ *
+ * Keyframe animations for smooth transitions and effects
+ */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -251,12 +323,24 @@ body {
   }
 }
 
+/*
+ * LAYOUT CONTAINER
+ * ================
+ *
+ * Centered container for content with max-width constraint.
+ */
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
+/*
+ * LOGIN FORM CONTAINER
+ * ====================
+ *
+ * Centered container for authentication forms
+ */
 .login-form-container {
   display: flex;
   justify-content: center;
@@ -268,6 +352,12 @@ body {
   z-index: 10;
 }
 
+/*
+ * LOGIN CARD COMPONENT
+ * ====================
+ *
+ * Glass card effect for authentication forms with responsive behavior
+ */
 .login-card {
   background: var(--bg-card);
   padding: 2.5rem;
@@ -288,6 +378,12 @@ body {
   justify-content: center;
 }
 
+/*
+ * RESPONSIVE DESIGN: Tablet Breakpoint
+ * ====================================
+ *
+ * Adjustments for tablet and smaller screen sizes.
+ */
 @media (max-width: 768px) {
   .login-card {
     max-width: 90%;
@@ -300,6 +396,12 @@ body {
   }
 }
 
+/**
+ * RESPONSIVE DESIGN: Height Adjustments
+ * =====================================
+ *
+ * Scaling adjustments for smaller screen heights.
+ */
 @media (max-height: 700px) {
   .login-card {
     transform: scale(0.9);
@@ -314,6 +416,12 @@ body {
   }
 }
 
+/*
+ * FORM COMPONENTS
+ * ===============
+ *
+ * Styles for form elements and authentication components.
+ */
 .login-title {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -351,12 +459,14 @@ body {
   z-index: 11;
 }
 
+/* Focus state for form inputs */
 .form-group input:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
+/* Form submission button */
 .login-submit-btn {
   width: 100%;
   padding: 14px;
@@ -371,11 +481,13 @@ body {
   margin-top: 0.5rem;
 }
 
+/* Hover state for submit button */
 .login-submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
 
+/* Form footer links */
 .form-footer {
   text-align: center;
   margin-top: 1.5rem;
@@ -392,6 +504,12 @@ body {
   text-decoration: underline;
 }
 
+/*
+ * RESPONSIVE DESIGN: Mobile Breakpoints
+ * =====================================
+ *
+ * Additional adjustments for mobile devices.
+ */
 @media (max-width: 768px) {
   .login-card {
     padding: 2rem;

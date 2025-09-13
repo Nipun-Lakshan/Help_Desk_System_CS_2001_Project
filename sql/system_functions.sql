@@ -39,3 +39,9 @@ SELECT * FROM student WHERE reg_number = "2020s18073";
 
 -- Remove student by registration number.
 DELETE FROM student WHERE reg_number = "2023s20896";
+
+-- File Name: add_user_handle.php
+-- ==============================
+
+-- Insert a new user with timestamps.
+INSERT INTO users (username, user_type, password, created_at, updated_at) VALUES ("kamindhu", "test", "kamindhu@1956", NOW(), NoW());
