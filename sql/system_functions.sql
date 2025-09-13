@@ -1,10 +1,10 @@
 -- File Name: login_handle.php
 -- ===========================
 
--- Purpose: SQL query to find a user with the given username and password
+-- Purpose: SQL query to find a user with the given username and password.
 SELECT * FROM users WHERE username="hiran" AND password="hiran@1970";
 
---Purpose: SQL query to find a student with the given registration number and password
+--Purpose: SQL query to find a student with the given registration number and password.
 SELECT * FROM student WHERE reg_number = "2018s16821" AND password = "2018@14321";
 
 -- File Name: register_handle.php
@@ -30,3 +30,12 @@ SELECT * FROM student WHERE reg_number = "2023s20371";
 
 -- Purpose: Update student information for a specific registration number.
 UPDATE student SET name_with_initials = "Dissanayake S. M.", town = "Jaffna", contact_number = "0777123456", password = "2018@14321" WHERE reg_number = "2018s16821";
+
+-- File Name: delete_handle.php
+-- ============================
+
+-- Fetch student by registration number.
+SELECT * FROM student WHERE reg_number = "2020s18073";
+
+-- Remove student by registration number.
+DELETE FROM student WHERE reg_number = "2023s20896";

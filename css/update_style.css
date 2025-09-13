@@ -62,10 +62,10 @@
 /*
  * NAVIGATION BAR
  * ==============
- * 
+ *
  * Fixed header with glass morphism effect and smooth transitions.
  */
-nav {
+#nav {
   position: fixed;
   top: 0;
   width: 100%;
