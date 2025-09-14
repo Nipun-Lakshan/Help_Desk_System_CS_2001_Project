@@ -84,3 +84,29 @@ SELECT * FROM tickets WHERE ticket_id = 10;
 
 -- Delete a ticket by ticket_id
 DELETE FROM tickets WHERE ticket_id = "3";
+
+-- File Name: fetch_replies.php
+-- ============================
+
+-- -- Gets all replies with ticket info
+SELECT
+    `reply`.*,
+    `tickets`.student_reg_number,
+    `tickets`.description AS ticket_description
+FROM
+    `reply`
+JOIN
+    `tickets` ON reply.ticket_id = `tickets`.ticket_id
+ORDER BY
+    `reply`.date DESC;
+
+-- File Name: fetch_report.php
+-- ===========================
+
+-- Gets counts of students, users and tickets by status
+SELECT
+    (SELECT COUNT(*) FROM student) AS total_students,
+    (SELECT COUNT(*) FROM users) AS total_users,
+    (SELECT COUNT(*) FROM tickets) AS total_tickets,
+    (SELECT COUNT(*) FROM tickets WHERE status = 'pending') AS pending_tickets,
+    (SELECT COUNT(*) FROM tickets WHERE status = 'completed') AS completed_tickets;
