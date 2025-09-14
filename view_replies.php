@@ -1,7 +1,5 @@
 <?php 
-
 include __DIR__ . "/php/auth_check_admin.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -18,13 +16,15 @@ include __DIR__ . "/php/auth_check_admin.php";
             <div class="logo">Help Desk - Admin</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="admin_dashboard.php">Dashboard</a></li>
+                <li><a href="faq.html">FAQs</a></li>
                 <li><button class="btn-login" onclick="window.location.href='php/logout.php'">Logout</button></li>
             </ul>
         </div>
     </nav>
     <section class="hero">
         <div class="tickets-container">
-            <h1 class="login-title">Replies View</h1>
+            <h1 class="login-title">Reply Information View</h1>
             <div class="tickets-table-container">
                 <?php include 'php/fetch_replies.php'; ?>
             </div>

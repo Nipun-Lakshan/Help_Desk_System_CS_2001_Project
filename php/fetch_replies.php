@@ -27,22 +27,26 @@ try {
             <thead>
                 <tr>
                     <th>Reply ID</th>
+                    <th>Ticket ID</th>
                     <th>Ticket Description</th>
                     <th>Student Reg Number</th>
                     <th>Reply</th>
                     <th>Replied By</th>
-                    <th>Date</th>
+                    <th>Created Date</th>
+                    <th>Updated Date</th>
                 </tr>
             </thead>
             <tbody>
                 <?php while ($reply = $result->fetch_assoc()): ?>
                 <tr>
                     <td><?php echo htmlspecialchars($reply['reply_id']); ?></td>
+                    <td><?php echo htmlspecialchars($reply['ticket_id']); ?></td>
                     <td><?php echo htmlspecialchars($reply['ticket_description']); ?></td>
                     <td><?php echo htmlspecialchars($reply['student_reg_number']); ?></td>
                     <td><?php echo htmlspecialchars($reply['description']); ?></td>
                     <td><?php echo htmlspecialchars($reply['replied_by']); ?></td>
                     <td><?php echo htmlspecialchars($reply['date']); ?></td>
+                    <td><?php echo htmlspecialchars($reply['updated_date']); ?></td>
                 </tr>
                 <?php endwhile; ?>
             </tbody>

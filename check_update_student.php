@@ -31,7 +31,7 @@ unset($_SESSION['submitted_reg_number']);
     <title>Help Desk - Update a Student</title>
 
     <!-- Main Stylesheet -->
-    <link href="css/update_style.css" rel="stylesheet" />
+    <link href="css/check_update_student_style.css" rel="stylesheet" />
   </head>
 
   <body>

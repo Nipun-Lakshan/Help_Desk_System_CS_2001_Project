@@ -34,7 +34,7 @@ unset($_SESSION['submitted_username']);
     <title>Help Desk - Delete a User</title>
 
     <!-- Main Stylesheet -->
-    <link href="css/update_style.css" rel="stylesheet" />
+    <link href="css/check_update_student_style.css" rel="stylesheet" />
   </head>
   
   <body>

@@ -76,4 +76,11 @@ DELETE FROM users WHERE username = "kamindhu";
 -- Select all tickets sorted by date in descending order.
 SELECT * FROM tickets ORDER BY date DESC;
 
---
+-- File Name: delete_ticket_handle.php
+-- ===================================
+
+-- Selects a ticket with a specific id.
+SELECT * FROM tickets WHERE ticket_id = 10;
+
+-- Delete a ticket by ticket_id
+DELETE FROM tickets WHERE ticket_id = "3";
