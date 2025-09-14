@@ -160,3 +160,26 @@ SELECT * FROM reply WHERE reply_id = "4";
 
 -- Updates the description of the specific reply id.
 UPDATE reply SET description = "Yes" WHERE reply_id = "6";
+
+-- File Name: auth_check_students.php
+-- ==================================
+
+-- Selects the registration number for a student with an id.
+SELECT reg_number FROM student WHERE id = "5" LIMIT 1;
+
+-- File Name: create_ticket_handle.php
+-- ===================================
+
+-- Inserts a new ticket with student details, description, department and the current date.
+INSERT INTO tickets (student_reg_number, description, department, date) VALUES ("2018s16821", "Insert Query", "ITSC", NOW());
+
+-- File Name: fetch_tickets_students.php
+-- =====================================
+
+-- Selects all tickets for a specific student and orders them by date.
+SELECT * FROM tickets WHERE student_reg_number = "2018s16821" ORDER BY date DESC;
+
+-- File Name: update_ticket_handle.php
+-- ===================================
+
+--

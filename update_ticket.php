@@ -2,17 +2,17 @@
 include __DIR__ . "/php/auth_check_students.php";
 
 // Check if student data is available in session
-if (!isset($_SESSION['user_data']) || empty($_SESSION['user_data'])) {
+if (!isset($_SESSION['ticket_data']) || empty($_SESSION['ticket_data'])) {
     // Redirect back to search page if no student data
     header("Location: check_update_ticket.php");
     exit();
 }
 
 // Retrieve student data from session
-$user_data = $_SESSION['user_data'];
+$ticket_data = $_SESSION['ticket_data'];
 
 // Clear the student data from session after retrieving it
-unset($_SESSION['user_data']);
+unset($_SESSION['ticket_data']);
 ?>
 
 <!DOCTYPE html>
@@ -26,9 +26,11 @@ unset($_SESSION['user_data']);
   <body>
     <nav id="navbar">
       <div class="nav-container">
-        <div class="logo">Help Desk</div>
+        <div class="logo">Help Desk - Student</div>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><a href="student_dashboard.php">Dashboard</a></li>
+          <li><a href="faq.html">FAQs</a></li>
           <li><button class="btn-login" onclick="window.location.href='php/logout.php'">Logout</button></li>
         </ul>
       </div>
@@ -48,9 +50,9 @@ unset($_SESSION['user_data']);
               >
               <input
                 type="text"
-                id="username"
-                name="username"
-                value="<?php echo htmlspecialchars($user_data['ticket_id']); ?>"
+                id="ticket_id"
+                name="ticket_id"
+                value="<?php echo htmlspecialchars($ticket_data['ticket_id']); ?>"
                 readonly
                 required
               />
@@ -63,7 +65,7 @@ unset($_SESSION['user_data']);
                 type="text"
                 id="ticket_id"
                 name="ticket_id"
-                value="<?php echo htmlspecialchars($user_data['student_reg_number']); ?>"
+                value="<?php echo htmlspecialchars($ticket_data['student_reg_number']); ?>"
                 readonly
                 required
               />
@@ -74,7 +76,7 @@ unset($_SESSION['user_data']);
                 id="description"
                 name="description"
                 placeholder="Enter your answer"
-              ><?php echo htmlspecialchars($user_data['description']); ?></textarea>
+              ><?php echo htmlspecialchars($ticket_data['description']); ?></textarea>
             </div>
              <div class="form-group">
               <label for="ticket_id"
@@ -84,7 +86,7 @@ unset($_SESSION['user_data']);
                 type="text"
                 id="ticket_id"
                 name="ticket_id"
-                value="<?php echo htmlspecialchars($user_data['department']); ?>"
+                value="<?php echo htmlspecialchars($ticket_data['department']); ?>"
                 readonly
                 required
               />
@@ -97,7 +99,20 @@ unset($_SESSION['user_data']);
                 type="text"
                 id="ticket_id"
                 name="ticket_id"
-                value="<?php echo htmlspecialchars($user_data['date']); ?>"
+                value="<?php echo htmlspecialchars($ticket_data['date']); ?>"
+                readonly
+                required
+              />
+            </div>
+            <div class="form-group">
+            <label for="ticket_id"
+                >Updated Date</label
+              >
+              <input
+                type="text"
+                id="ticket_id"
+                name="ticket_id"
+                value="<?php echo htmlspecialchars($ticket_data['date']); ?>"
                 readonly
                 required
               />
@@ -110,7 +125,7 @@ unset($_SESSION['user_data']);
                 type="text"
                 id="ticket_id"
                 name="ticket_id"
-                value="<?php echo htmlspecialchars($user_data['status']); ?>"
+                value="<?php echo htmlspecialchars($ticket_data['status']); ?>"
                 readonly
                 required
               />

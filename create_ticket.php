@@ -1,4 +1,14 @@
-<?php 
+<?php
+/*
+ * Create Ticket Page - Student Interface
+ * ======================================
+ *
+ * This page allows students to create new help desk tickets.
+ * Pre - fills the student's registration number from session data.
+ * Requires student authentication for access.
+ */
+
+// Include student authentication check to secure the page.
 include __DIR__ . "/php/auth_check_students.php";
 ?>
 
@@ -8,31 +18,47 @@ include __DIR__ . "/php/auth_check_students.php";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Help Desk - Create a Ticket</title>
+
+    <!-- Main Stylesheet -->
     <link href="css/create_ticket_style.css" rel="stylesheet" />
   </head>
+
   <body>
-    <nav id="navbar">
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="nav">
       <div class="nav-container">
-        <div class="logo">Help Desk</div>
+        <div class="logo">Help Desk - Student</div>
+
+        <!-- Navigation Links -->
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><button class="btn-login" onclick="window.location.href='php/logout.php'">Logout</button></li>
+          <li><a href="student_dashboard.php">Dashboard</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+
+          <!-- Logout Button -->
+          <li>
+            <button class="btn-login" onclick="window.location.href='php/logout.php'">
+              Logout
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
+
+    <!-- Main Section -->
     <section id="home" class="hero">
       <div class="login-form-container">
         <div class="login-card">
+
+          <!-- Page Header -->
           <h2 class="login-title">Create a Ticket</h2>
-          <form
-            class="login-form"
-            action="php/create_ticket_handle.php"
-            method="POST"
-          >
+
+          <!-- Ticket Submission Form -->
+          <form class="login-form" action="php/create_ticket_handle.php" method="POST">
+
+            <!-- Student's Registration Number (Read-only) -->
             <div class="form-group">
-              <label for="student_reg_number"
-                >Student Registration's Number</label
-              >
+              <label for="student_reg_number">Student Registration's Number</label>
               <input
                 type="text"
                 id="student_reg_number"
@@ -41,6 +67,8 @@ include __DIR__ . "/php/auth_check_students.php";
                 readonly
               />
             </div>
+
+            <!-- Description Field -->
             <div class="form-group textarea">
               <label for="description">Description</label>
               <textarea
@@ -50,6 +78,8 @@ include __DIR__ . "/php/auth_check_students.php";
                 required
               ></textarea>
             </div>
+
+            <!-- Department Selection -->
             <div class="form-group">
               <label for="department">Department</label>
               <select id="department" name="department" required>
@@ -67,11 +97,16 @@ include __DIR__ . "/php/auth_check_students.php";
                 <option value="Dean's Office">Dean's Office</option>
               </select>
             </div>
+
+            <!-- Form Submission Button -->
             <button type="submit" class="login-submit-btn">Create</button>
+
           </form>
         </div>
       </div>
     </section>
+
+    <!-- Footer Section -->
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
