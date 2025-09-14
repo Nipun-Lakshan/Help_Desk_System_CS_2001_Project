@@ -1,11 +1,20 @@
-/* Reset all margins, paddings and set universal box - sizing */
+/*
+ * GLOBAL RESET & BASE STYLES
+ * ==========================
+ *
+ * Resets default browser styles and establishes consistent box model.
+ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Base login button styling */
+/*
+ * BUTTON COMPONENT: Login
+ * =======================
+ * Reusable button styles with hover, active, focus and disabled states.
+ */
 .btn-login {
   display: inline-block;
   padding: 8px 20px;
@@ -22,27 +31,27 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Hover state for login button */
+/* Hover state - elevation and color enhancement */
 .btn-login:hover {
   background-color: #3367d6;
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Active state for login button */
+/* Active state - pressed down effect */
 .btn-login:active {
   background-color: #2a56c6;
   transform: translateY(0);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Focus state for accessibility */
+/* Focus state - accessibility consideration */
 .btn-login:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.3);
 }
 
-/* Disabled state styling */
+/* Disabled state - visual indication of inactive button */
 .btn-login:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
@@ -50,8 +59,13 @@
   box-shadow: none;
 }
 
-/* Fixed navigation bar with glass effect */
-nav {
+/*
+ * NAVIGATION BAR
+ * ==============
+ *
+ * Fixed header with glass morphism effect and smooth transitions.
+ */
+#navbar {
   position: fixed;
   top: 0;
   width: 100%;
@@ -63,7 +77,7 @@ nav {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Navigation container layout */
+/* Navigation container for proper alignment. */
 .nav-container {
   max-width: 1400px;
   margin: 0 auto;
@@ -73,7 +87,7 @@ nav {
   align-items: center;
 }
 
-/* Logo styling with gradient text effect */
+/* Brand logo with gradient text effect. */
 .logo {
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 1.75rem;
@@ -93,7 +107,7 @@ nav {
   align-items: center;
 }
 
-/* Individual navigation link styling */
+/* Individual navigation link styles */
 .nav-links a {
   text-decoration: none;
   color: var(--text-primary);
@@ -104,13 +118,13 @@ nav {
   padding: 0.5rem 0;
 }
 
-/* Navigation link hover effects */
+/* Hover state for navigation links. */
 .nav-links a:hover {
   color: var(--primary-color);
   transform: translateY(-1px);
 }
 
-/* Animated underline effect for navigation links */
+/* Animated underline effect for navigation links. */
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -124,12 +138,17 @@ nav {
   border-radius: 1px;
 }
 
-/* Expand underline on hover */
+/* Expand underline on hover. */
 .nav-links a:hover::after {
   width: 100%;
 }
 
-/* Footer with gradient background */
+/*
+ * FOOTER SECTION
+ * ==============
+ * 
+ * Gradient background footer with subtle border.
+ */
 .footer {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #312e81 100%);
   color: var(--text-light);
@@ -140,14 +159,18 @@ nav {
   margin-top: auto;
 }
 
-/* Footer text styling */
+/* Footer Text Styling */
 .footer-left p {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
   margin: 0;
 }
 
-/* CSS Custom Properties (Design System Variables) */
+/*
+ * DESIGN SYSTEM VARIABLES
+ * =======================
+ * CSS custom properties for consistent theming across the application.
+ */
 :root {
   /* Color Palette */
   --primary-color: #6366f1;
@@ -176,12 +199,16 @@ nav {
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
-  /* Glassmorphism Effects */
+  /* Glass Morphism Effects */
   --glass: rgba(255, 255, 255, 0.15);
   --glass-border: rgba(255, 255, 255, 0.2);
 }
 
-/* Global Body Styles */
+/*
+ * BASE BODY STYLES
+ * ================
+ * Sets up foundational typography and layout structure
+ */
 body {
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   line-height: 1.7;
@@ -194,7 +221,11 @@ body {
   min-height: 100vh;
 }
 
-/* Hero Section Styles */
+/*
+ * HERO SECTION
+ * ============
+ * Full-width banner with gradient background and subtle animation effects
+ */
 .hero {
   min-height: calc(100vh - 200px);
   display: flex;
@@ -212,7 +243,7 @@ body {
   height: auto;
 }
 
-/* Background grid pattern overlay */
+/* Animated grid pattern overlay */
 .hero::before {
   content: '';
   position: absolute;
@@ -225,7 +256,7 @@ body {
   opacity: 0.7;
 }
 
-/* Radial gradient overlay */
+/* Subtle radial gradient overlay */
 .hero::after {
   content: '';
   position: absolute;
@@ -248,7 +279,7 @@ body {
   padding: 0 2rem;
 }
 
-/* Hero heading with animation */
+/* Main hero heading */
 .hero h1 {
   font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   font-size: 5rem;
@@ -261,7 +292,7 @@ body {
   letter-spacing: -1px;
 }
 
-/* Hero subtitle with animation */
+/* Hero subtitle */
 .hero .subtitle {
   font-size: 1.3rem;
   margin-bottom: 3rem;
@@ -275,7 +306,11 @@ body {
   margin-right: auto;
 }
 
-/* Fade in up animation */
+/*
+ * ANIMATIONS
+ * ==========
+ * Keyframe animations for smooth transitions and effects
+ */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -283,14 +318,24 @@ body {
   }
 }
 
-/* Main content container */
+/*
+ * LAYOUT CONTAINER
+ * ================
+ *
+ * Centered container for content with max-width constraint
+ */
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-/* Login Form Container Styles */
+/*
+ * LOGIN FORM CONTAINER
+ * ====================
+ *
+ * Centered container for authentication forms
+ */
 .login-form-container {
   display: flex;
   justify-content: center;
@@ -302,7 +347,12 @@ body {
   z-index: 10;
 }
 
-/* Login card with glassmorphism effect */
+/*
+ * LOGIN CARD COMPONENT
+ * ====================
+ *
+ * Glass card effect for authentication forms with responsive behavior
+ */
 .login-card {
   background: var(--bg-card);
   padding: 2.5rem;
@@ -323,7 +373,50 @@ body {
   justify-content: center;
 }
 
-/* Form Title Styles */
+/*
+ * RESPONSIVE DESIGN: Tablet Breakpoint
+ * ====================================
+ *
+ * Adjustments for tablet and smaller screen sizes
+ */
+@media (max-width: 768px) {
+  .login-card {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .hero {
+    margin-top: 70px;
+    min-height: calc(100vh - 110px);
+  }
+}
+
+/*
+ * RESPONSIVE DESIGN: Height Adjustments
+ * =====================================
+ *
+ * Scaling adjustments for smaller screen heights
+ */
+@media (max-height: 700px) {
+  .login-card {
+    transform: scale(0.9);
+    margin: 1rem auto;
+  }
+}
+
+@media (max-height: 600px) {
+  .login-card {
+    transform: scale(0.85);
+    margin: 0.5rem auto;
+  }
+}
+
+/*
+ * FORM COMPONENTS
+ * ===============
+ *
+ * Styles for form elements and authentication components
+ */
 .login-title {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -332,18 +425,15 @@ body {
   font-weight: 700;
 }
 
-/* Form Layout Styles */
 .login-form {
   display: flex;
   flex-direction: column;
 }
 
-/* Form group spacing */
 .form-group {
   margin-bottom: 1.5rem;
 }
 
-/* Form label styling */
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
@@ -352,7 +442,6 @@ body {
   font-size: 0.95rem;
 }
 
-/* Form input field styling */
 .form-group input {
   width: 100%;
   padding: 12px 16px;
@@ -365,14 +454,14 @@ body {
   z-index: 11;
 }
 
-/* Input focus state */
+/* Focus state for form inputs */
 .form-group input:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
-/* Submit Button Styles */
+/* Form submission button */
 .login-submit-btn {
   width: 100%;
   padding: 14px;
@@ -387,19 +476,18 @@ body {
   margin-top: 0.5rem;
 }
 
-/* Submit button hover effects */
+/* Hover state for submit button */
 .login-submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
 
-/* Form Footer Styles */
+/* Form footer links */
 .form-footer {
   text-align: center;
   margin-top: 1.5rem;
 }
 
-/* Forgot password link styling */
 .forgot-password {
   color: var(--primary-color);
   text-decoration: none;
@@ -407,68 +495,32 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Forgot password hover effect */
 .forgot-password:hover {
   text-decoration: underline;
 }
 
-/* Textarea Form Element Styles */
-.form-group textarea {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.9);
-  transition: all 0.3s ease;
-  min-height: 120px;
-  resize: vertical;
-  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
-  line-height: 1.5;
+/*
+ * RESPONSIVE DESIGN: Mobile Breakpoints
+ * =====================================
+ *
+ * Additional adjustments for mobile devices
+ */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 2rem;
+  }
+
+  .login-title {
+    font-size: 1.6rem;
+  }
 }
 
-/* Textarea focus state */
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-}
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1.5rem;
+  }
 
-/* Select Dropdown Form Element Styles */
-.form-group select {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.9);
-  transition: all 0.3s ease;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 16px center;
-  background-size: 1em;
-  cursor: pointer;
-  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
-}
-
-.form-group select:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-}
-
-.form-group select:invalid {
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.form-group select option {
-  color: var(--text-primary);
-  padding: 8px;
-}
-
-.form-group select option[value=""] {
-  color: rgba(0, 0, 0, 0.5);
+  .form-group input {
+    padding: 10px 14px;
+  }
 }

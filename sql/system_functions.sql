@@ -110,3 +110,53 @@ SELECT
     (SELECT COUNT(*) FROM tickets) AS total_tickets,
     (SELECT COUNT(*) FROM tickets WHERE status = 'pending') AS pending_tickets,
     (SELECT COUNT(*) FROM tickets WHERE status = 'completed') AS completed_tickets;
+
+-- File Name: auth_check_users.php
+-- ===============================
+
+-- Retrieves the username for a specific user id.
+SELECT username FROM users WHERE user_id = 3 LIMIT 1;
+
+-- File Name: reply_handle.php
+-- ===========================
+
+-- Selects a ticket by its id.
+SELECT * FROM tickets WHERE ticket_id = 5;
+
+-- Inserts a new reply into the reply table.
+INSERT INTO reply (ticket_id, description, replied_by, date) VALUES ("6", "No", "rushan", NOW());
+
+-- Updates the status of a specific ticket to 'completed'
+UPDATE tickets SET status = 'completed' WHERE ticket_id = "6";
+
+-- File Name: fetch_replies_staff.php
+-- ==================================
+
+-- Selects replies and ticket details for a specific user.
+SELECT
+    `reply`.*,
+    `tickets`.student_reg_number,
+    `tickets`.description AS ticket_description
+FROM
+    `reply`
+JOIN
+    `tickets` ON `reply`.ticket_id = `tickets`.ticket_id
+WHERE
+    `reply`.replied_by = 'hiran'
+ORDER BY
+    `reply`.date DESC;
+
+-- File Name: fetch_tickets_staff.php
+-- ==================================
+
+-- Selects all tickets for the 'Department of Physics' and orders them by date.
+SELECT * FROM tickets WHERE department="Department of Physics" ORDER BY date DESC;
+
+-- File Name: update_reply_handle.php
+-- ==================================
+
+-- Selects a specific reply.
+SELECT * FROM reply WHERE reply_id = "4";
+
+-- Updates the description of the specific reply id.
+UPDATE reply SET description = "Yes" WHERE reply_id = "6";
