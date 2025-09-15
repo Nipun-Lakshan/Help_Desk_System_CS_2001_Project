@@ -94,7 +94,7 @@ unset($_SESSION['user_data']);
 
             <!-- User Type Field (Read-only) -->
             <div class="form-group">
-              <label for="user_type">User Type</label>
+              <label for="user_type">Department</label>
               <input
               type="text"
               id="user_type"
