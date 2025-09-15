@@ -1,26 +1,60 @@
 <!DOCTYPE html>
+<!--
+    500 Internal Server Error Page
+    ==============================
+
+    Displayed when the server encounters an unexpected condition that prevents it
+    from fulfilling the request. Provides users with navigation options and a clear
+    error message while maintaining brand consistency.
+-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Help Desk - 500 Error</title>
+
+    <!-- External CSS for 500 error page styling -->
     <link href="css/500_style.css" rel="stylesheet" />
   </head>
+
   <body>
-    <nav id="navbar">
+    <!-- Main Navigation Bar -->
+    <nav id="navbar" class="nav">
       <div class="nav-container">
+
+        <!-- Application Logo -->
         <div class="logo">Help Desk</div>
+
+        <!-- Navigation Menu -->
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+
+          <!-- LOGIN BUTTON -->
+          <li>
+            <button class="btn-login" onclick="window.location.href='login.html'">
+              Login
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
+
+    <!-- Main Content Section -->
     <section id="home" class="hero">
       <div class="login-form-container">
         <div class="login-card">
+
+          <!-- Error Message Header -->
           <h2 class="login-title">500 Internal Server Error</h2>
+
+          <!-- Error Visualization Image -->
           <img src="images/500_error.jpg" />
+        </div>
+      </div>
     </section>
+
+    <!-- Page Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-content">

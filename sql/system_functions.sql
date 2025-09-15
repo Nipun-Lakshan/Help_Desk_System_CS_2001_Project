@@ -182,4 +182,25 @@ SELECT * FROM tickets WHERE student_reg_number = "2018s16821" ORDER BY date DESC
 -- File Name: update_ticket_handle.php
 -- ===================================
 
---
+-- Retrieves a ticket with a specific ID.
+SELECT * FROM tickets WHERE ticket_id = "13";
+
+-- Updates the description for a ticket.
+UPDATE tickets SET description = "No" WHERE ticket_id = "13";
+
+-- File Name: fetch_replies_students.php
+-- =====================================
+
+-- Retrieves all replies associated with a specific student's tickets.
+SELECT 
+    `reply`.*, 
+    `tickets`.student_reg_number, 
+    `tickets`.description AS ticket_description 
+FROM 
+    `reply`
+JOIN 
+    `tickets` ON `reply`.ticket_id = `tickets`.ticket_id
+WHERE 
+    `tickets`.student_reg_number = "2018s16821"
+ORDER BY 
+    `reply`.date DESC;

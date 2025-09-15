@@ -1,26 +1,59 @@
 <!DOCTYPE html>
+<!--
+401 Unauthorized Access Page
+============================
+
+Displayed when a user attempts to access restricted content without proper authentication.
+Provides navigation options and a clear error message to guide users back to valid pathways.
+-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Help Desk - 401 Error</title>
+
+    <!-- External CSS stylesheet for 401 error page styling -->
     <link href="css/401_style.css" rel="stylesheet" />
   </head>
+
   <body>
-    <nav id="navbar">
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="nav">
       <div class="nav-container">
+
+        <!-- Application Logo/Brand -->
         <div class="logo">Help Desk</div>
+
+        <!-- Navigation Links -->
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+
+          <!-- LOGIN BUTTON -->
+          <li>
+            <button class="btn-login" onclick="window.location.href='login.html'">
+              Login
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
+
+    <!-- Main Content Section -->
     <section id="home" class="hero">
       <div class="login-form-container">
         <div class="login-card">
+
+          <!-- Error Message Header -->
           <h2 class="login-title">401 Unauthorized User</h2>
+
+          <!-- Error Illustration Image -->
           <img src="images/401_error.png" />
+        </div>
+      </div>
     </section>
+
+    <!-- Footer Section -->
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
